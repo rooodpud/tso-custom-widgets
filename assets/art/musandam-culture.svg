@@ -1,0 +1,9 @@
+<svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 100 L60 40 L120 90 L180 30 L240 95 L300 45 L380 90 L380 150 L0 150 Z" fill="#382520" opacity=".5"/>
+          <path d="M0 240 Q 95 210 190 240 T 380 230 V340 H0 Z" fill="#0A4E70"/>
+          <g transform="translate(90,150)">
+            <path d="M0 30 Q 45 42 100 30 L92 42 Q 48 50 8 42 Z" fill="#241611"/>
+            <line x1="46" y1="30" x2="46" y2="0" stroke="#241611" stroke-width="2.5"/>
+            <path d="M46 3 L76 24 L46 24 Z" fill="#F3692A"/>
+          </g>
+        </svg>

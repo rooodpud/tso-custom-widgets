@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1180 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-section of Wadi Ghul canyon showing the plateau rim, the Balcony Walk ledge with the abandoned village of As Sab, and the canyon floor about 1,000 metres below">
+      <style>@media (max-width: 640px) { .ts-art-fine { display: none; } }</style>
+      <defs>
+        <linearGradient id="xsSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#CDEFEF"/><stop offset="100%" stop-color="#FBF6EE"/></linearGradient>
+        <linearGradient id="xsRock" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#AFA880"/><stop offset="45%" stop-color="#807A67"/><stop offset="100%" stop-color="#5E3C35"/></linearGradient>
+      </defs>
+      <rect width="1180" height="520" fill="url(#xsSky)"/>
+      <!-- left wall: plateau, short cliff, the ledge (shelf), then the sheer drop -->
+      <path d="M0 110 L430 110 L446 150 L456 196 L565 196 L575 240 L610 470 L620 520 H0 Z" fill="url(#xsRock)"/>
+      <!-- right wall -->
+      <path d="M1180 130 L820 130 L800 190 L760 300 L720 430 L700 520 H1180 Z" fill="url(#xsRock)"/>
+      <!-- canyon floor + wadi -->
+      <path d="M610 470 Q 660 486 720 470 L700 520 L620 520 Z" fill="#5E3C35"/>
+      <path d="M624 490 Q 662 480 706 490" stroke="#38A833" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <g fill="#FFFCF6"><rect x="640" y="462" width="12" height="10"/><rect x="656" y="458" width="10" height="14"/><rect x="670" y="463" width="12" height="9"/></g>
+
+      <!-- Balcony Walk: along the plateau, down the short cliff, then along the ledge to As Sab -->
+      <path d="M200 106 L424 106 C 440 128 446 168 462 190 L522 190" fill="none" stroke="#F3692A" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <!-- As Sab ruins on the ledge -->
+      <g fill="#AF6A2F"><rect x="524" y="178" width="14" height="18"/><rect x="540" y="182" width="12" height="14"/><rect x="508" y="184" width="12" height="12"/></g>
+
+      <!-- rooftop tent car on the plateau -->
+      <g transform="translate(40,74) scale(.42)">
+        <rect x="0" y="40" width="150" height="40" rx="8" fill="#382520"/>
+        <rect x="16" y="6" width="90" height="38" rx="8" fill="#382520"/>
+        <rect x="10" y="-18" width="104" height="26" rx="6" fill="#F3692A"/>
+        <circle cx="32" cy="82" r="15" fill="#241611"/><circle cx="118" cy="82" r="15" fill="#241611"/>
+      </g>
+
+      <!-- depth scale -->
+      <g>
+        <line x1="1110" y1="130" x2="1110" y2="470" stroke="#382520" stroke-width="3" opacity=".35"/>
+        <line x1="1096" y1="130" x2="1124" y2="130" stroke="#382520" stroke-width="3" opacity=".5"/>
+        <line x1="1096" y1="470" x2="1124" y2="470" stroke="#382520" stroke-width="3" opacity=".5"/>
+        <text class="ts-art-fine" x="1090" y="306" text-anchor="end" font-family="Bricolage Grotesque, Arial, Helvetica, sans-serif" font-weight="800" font-size="30" fill="#FFFCF6">~1,000 m</text>
+      </g>
+
+      <!-- large numbered badges: readable even when the diagram shrinks on a phone -->
+      <g font-family="Bricolage Grotesque, Arial, Helvetica, sans-serif" font-weight="800" text-anchor="middle">
+        <circle cx="290" cy="60" r="34" fill="#807A67" stroke="#FFFCF6" stroke-width="5"/>
+        <text x="290" y="74" font-size="40" fill="#FFFCF6">1</text>
+        <circle cx="400" cy="262" r="34" fill="#F3692A" stroke="#FFFCF6" stroke-width="5"/>
+        <text x="400" y="276" font-size="40" fill="#FFFCF6">2</text>
+        <line x1="428" y1="244" x2="500" y2="200" stroke="#FFFCF6" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="840" cy="440" r="34" fill="#5E3C35" stroke="#FFFCF6" stroke-width="5"/>
+        <text x="840" y="454" font-size="40" fill="#FFFCF6">3</text>
+        <line x1="806" y1="446" x2="726" y2="478" stroke="#FFFCF6" stroke-width="4" stroke-linecap="round"/>
+      </g>
+
+      <!-- fine-print labels: larger screens only -->
+      <g class="ts-art-fine" font-family="Karla, Arial, Helvetica, sans-serif" font-weight="700" font-size="17" fill="#FFFCF6">
+        <text x="336" y="66" fill="#382520">The plateau &amp; rim</text>
+        <text x="352" y="256" text-anchor="end">The Balcony Walk ledge</text><text x="352" y="280" text-anchor="end" font-weight="500">along to As Sab</text>
+        <text x="886" y="446">Wadi Ghul, the canyon floor</text>
+      </g>
+</svg>

@@ -1,0 +1,294 @@
+/* TS Split Feature */
+.ts-split {
+	--ts-split-gap: 52px;
+	--ts-split-row-gap: 52px;
+	--ts-split-radius: 28px;
+	--ts-split-pad: 24px;
+	--ts-split-line: var(--ts-line);
+	display: flex;
+	flex-direction: column;
+	gap: var(--ts-split-row-gap);
+}
+
+/* ---------- Rows ---------- */
+.ts-split__row {
+	/* Arrangement (control) switches this between side by side and stacked. */
+	--ts-split-cols: minmax(0, var(--ts-split-pic, 1fr)) minmax(0, var(--ts-split-txt, 1fr));
+	display: grid;
+	grid-template-columns: var(--ts-split-cols);
+	gap: var(--ts-split-gap);
+	align-items: var(--ts-split-align, center);
+}
+
+.ts-split__row--pic-right {
+	--ts-split-cols: minmax(0, var(--ts-split-txt, 1fr)) minmax(0, var(--ts-split-pic, 1fr));
+	--ts-split-side-order: 2;
+}
+
+.ts-split__media {
+	order: var(--ts-split-media-order, var(--ts-split-side-order, 0));
+	min-width: 0;
+}
+
+.ts-split__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	min-width: 0;
+}
+
+/* Thin rule between rows */
+.ts-split--dividers {
+	gap: 0;
+}
+
+.ts-split--dividers .ts-split__row:not(:last-child) {
+	padding-bottom: var(--ts-split-row-gap);
+}
+
+.ts-split--dividers .ts-split__row + .ts-split__row {
+	padding-top: var(--ts-split-row-gap);
+	border-top: 1px solid var(--ts-split-line);
+}
+
+/* ---------- Picture ---------- */
+.ts-split__frame {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--ts-split-radius);
+	background: linear-gradient(160deg, var(--ts-a, #4A3128), var(--ts-b, #2C1D17));
+}
+
+.ts-split__img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* 1.9.4: art drawn in the page (Use the site fonts for text in the art). */
+.ts-split__svg svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* Plain: the picture fills a frame of the chosen shape. */
+.ts-split--pic-plain.ts-split--ratio-4-3 .ts-split__frame { aspect-ratio: 4 / 3; }
+.ts-split--pic-plain.ts-split--ratio-3-2 .ts-split__frame { aspect-ratio: 3 / 2; }
+.ts-split--pic-plain.ts-split--ratio-1-1 .ts-split__frame { aspect-ratio: 1 / 1; }
+.ts-split--pic-plain.ts-split--ratio-16-9 .ts-split__frame { aspect-ratio: 16 / 9; }
+
+.ts-split--pic-plain:not(.ts-split--ratio-natural) .ts-split__img {
+	position: absolute;
+	inset: 0;
+	height: 100%;
+	object-fit: cover;
+}
+
+.ts-split--pic-plain.ts-split--ratio-natural .ts-split__frame:empty {
+	aspect-ratio: 4 / 3;
+}
+
+/* Panel: the picture sits on the colour blend with some padding. */
+.ts-split--pic-panel .ts-split__frame {
+	padding: var(--ts-split-pad);
+}
+
+.ts-split--pic-panel:not(.ts-split--ratio-natural) .ts-split__img {
+	object-fit: contain;
+}
+
+.ts-split--pic-panel.ts-split--ratio-4-3 .ts-split__img { aspect-ratio: 4 / 3; }
+.ts-split--pic-panel.ts-split--ratio-3-2 .ts-split__img { aspect-ratio: 3 / 2; }
+.ts-split--pic-panel.ts-split--ratio-1-1 .ts-split__img { aspect-ratio: 1 / 1; }
+.ts-split--pic-panel.ts-split--ratio-16-9 .ts-split__img { aspect-ratio: 16 / 9; }
+
+.ts-split--pic-panel .ts-split__frame:empty {
+	aspect-ratio: 4 / 3;
+}
+
+/* ---------- Text ---------- */
+.ts-split__chip {
+	margin-bottom: 18px;
+}
+
+.ts-split__kicker {
+	margin-bottom: 12px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .05em;
+	line-height: 1.62; /* 1.9.4: drafts' line height (was 1.4). */
+	text-transform: uppercase;
+	color: var(--ts-tone-fg);
+}
+
+.ts-split__title {
+	--ts-fs: clamp(1.4rem, 2.4vw, 1.7rem);
+	--ts-lh: 1.2;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-split__text {
+	--ts-fs: 15.5px;
+	--ts-lh: 1.62; /* 1.9.4: drafts' line height (was 1.6). */
+	max-width: 460px;
+	margin-top: 14px;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+.ts-split__block {
+	width: 100%;
+	margin-top: 22px;
+}
+
+.ts-split__stats {
+	margin-top: 30px;
+}
+
+.ts-split__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 28px;
+}
+
+/* ---------- Light text for dark backgrounds ---------- */
+.ts-split--light {
+	--ts-split-line: rgba(255, 255, 255, .14);
+}
+
+.ts-split--light .ts-split__title {
+	color: #fff;
+}
+
+.ts-split--light .ts-split__text {
+	color: rgba(255, 255, 255, .72);
+}
+
+/* Checklist (ticks) under the text (1.6.0). */
+.ts-split__checklist + .ts-split__block {
+	margin-top: 18px;
+}
+
+/* ---------- 1.10.0 (Destinations page): fact boxes, links line, picture number, button arrow ---------- */
+.ts-split__boxes {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	padding: 0;
+}
+
+.ts-w .ts-split__box {
+	margin: 0;
+	padding: 11px 13px;
+	border-radius: 14px;
+	background: var(--ts-sand);
+}
+
+.ts-w .ts-split__box dt {
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-size: 11.5px;
+	font-weight: 700;
+	line-height: 1.62;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-w .ts-split__box dd {
+	display: block;
+	margin: 3px 0 0;
+	padding: 0;
+	font-family: var(--ts-font-head);
+	font-size: 15.5px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--ts-esp);
+}
+
+.ts-split__pairs {
+	margin-top: 14px;
+	font-size: 14px;
+	color: var(--ts-muted);
+}
+
+.ts-w .ts-split__pairs p {
+	margin: 0;
+}
+
+.ts-w .ts-split__pairs a {
+	border-bottom: 1.5px solid var(--ts-line);
+	font-weight: 700;
+	color: var(--ts-esp);
+	text-decoration: none;
+}
+
+.ts-split__badge {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(255, 252, 246, .94);
+	font-family: var(--ts-font-head);
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 1;
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-btn--arrow {
+	gap: 10px;
+}
+
+.ts-btn__arrow {
+	flex: none;
+	transition: transform .2s;
+}
+
+.ts-btn--arrow:hover .ts-btn__arrow {
+	transform: translateX(4px);
+}
+
+@media (max-width: 767px) {
+	.ts-split__boxes {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-btn__arrow {
+		transition: none;
+	}
+}
+
+/* Fact boxes sit 20px under the text, the tags 18px under the boxes (Destinations draft). */
+.ts-split .ts-split__boxes {
+	margin-top: 20px;
+}
+
+.ts-split .ts-split__boxes + .ts-split__tags {
+	margin-top: 18px;
+}
+
+/* 1.11.0: the picture label as a pill, for a few words (Experiences page). */
+.ts-w .ts-split__badge--pill {
+	width: auto;
+	height: auto;
+	max-width: calc(100% - 28px);
+	padding: 6px 13px;
+	border-radius: 100px;
+	font-family: var(--ts-font-body);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.4;
+}

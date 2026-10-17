@@ -1,0 +1,156 @@
+/* TS Travel Time Bars (1.10.0) — the drafts' ".ruler". */
+.ts-tb {
+	--ts-tb-name-w: 150px;
+	--ts-tb-label-w: 150px;
+	--ts-tb-road: var(--ts-terra);
+	--ts-tb-flight: var(--ts-tq);
+	--ts-tb-track: rgba(56, 37, 32, .06);
+	--ts-tb-line: var(--ts-line);
+}
+
+.ts-tb__box {
+	padding: 30px;
+	border: 1px solid var(--ts-line);
+	border-radius: 28px;
+	background: var(--ts-cream);
+}
+
+.ts-tb__row {
+	display: grid;
+	grid-template-columns: var(--ts-tb-name-w) minmax(0, 1fr);
+	gap: 18px;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.ts-tb__name {
+	font-family: var(--ts-font-head);
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--ts-esp);
+}
+
+.ts-tb__bars {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+}
+
+.ts-tb__bar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13.5px;
+	font-weight: 600;
+	color: var(--ts-muted);
+}
+
+.ts-tb__t {
+	flex-shrink: 0;
+	width: var(--ts-tb-label-w);
+}
+
+.ts-tb__track {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	height: 12px;
+	overflow: hidden;
+	border-radius: 100px;
+	background: var(--ts-tb-track);
+}
+
+.ts-tb__fill {
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: var(--ts-tb-w, 0);
+	border-radius: 100px;
+	background: var(--ts-tb-road);
+	transition: width 1s cubic-bezier(.2, .7, .2, 1);
+}
+
+.ts-tb__fill.is-flight {
+	background: var(--ts-tb-flight);
+}
+
+/* Long road: the same orange in two strengths, as stripes. */
+.ts-tb__fill.is-long {
+	background: var(--ts-tb-road);
+}
+
+.ts-tb__fill.is-long::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(90deg, rgba(255, 252, 246, .45) 0 8px, rgba(255, 252, 246, .75) 8px 14px);
+}
+
+/* Grow on view: the script adds .is-armed (bars at 0) and then .is-in. Without the script bars are drawn full. */
+.ts-tb--grow.is-armed .ts-tb__fill {
+	width: 0;
+}
+
+.ts-tb--grow.is-armed.is-in .ts-tb__fill {
+	width: var(--ts-tb-w, 0);
+}
+
+.ts-tb__scale {
+	display: grid;
+	grid-template-columns: var(--ts-tb-name-w) minmax(0, 1fr);
+	gap: 18px;
+	margin-top: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--ts-muted-2);
+}
+
+.ts-tb__ticks {
+	display: flex;
+	justify-content: space-between;
+	margin-left: calc(var(--ts-tb-label-w) + 10px);
+}
+
+.ts-tb__note {
+	margin-top: 18px;
+	font-size: 14.5px;
+	color: var(--ts-muted);
+}
+
+.ts-w .ts-tb__note p {
+	margin: 0;
+}
+
+.ts-w .ts-tb__note a {
+	border-bottom: 1.5px solid var(--ts-line);
+	font-weight: 700;
+	color: var(--ts-esp);
+	text-decoration: none;
+}
+
+@media (max-width: 640px) {
+	.ts-tb__row {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 6px;
+		padding: 12px 0;
+		border-top: 1px solid var(--ts-tb-line);
+	}
+
+	.ts-tb__row:first-of-type {
+		border-top: 0;
+	}
+
+	.ts-tb__bar {
+		font-size: 12.5px;
+	}
+
+	.ts-tb__scale {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-tb__fill {
+		transition: none;
+	}
+}

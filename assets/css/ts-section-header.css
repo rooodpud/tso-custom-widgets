@@ -1,0 +1,89 @@
+/* TS Section Header */
+.ts-sh {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.ts-sh__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: inherit;
+	width: 100%;
+	max-width: 660px;
+}
+
+.ts-sh__eyebrow {
+	margin-bottom: 16px;
+}
+
+.ts-sh__title {
+	--ts-fs: clamp(1.85rem, 3.2vw, 2.4rem);
+	--ts-lh: 1.15;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-sh__desc {
+	--ts-fs: 17px;
+	margin-top: 14px;
+	font-size: var(--ts-fs);
+	color: var(--ts-muted);
+}
+
+.ts-sh__desc p + p {
+	margin-top: .8em;
+}
+
+.ts-sh__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 30px;
+}
+
+/* Hero size (page top) */
+.ts-sh--hero .ts-sh__inner {
+	max-width: 700px;
+}
+
+.ts-sh--hero .ts-sh__eyebrow {
+	margin-bottom: 22px;
+}
+
+.ts-sh--hero .ts-sh__title {
+	--ts-fs: clamp(2.3rem, 4.6vw, 3.6rem);
+	--ts-lh: 1.08;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-sh--hero .ts-sh__desc {
+	margin-top: 20px;
+	max-width: 620px; /* 1.9.2: the drafts' lead width and line height (was 600px / 1.5). */
+	--ts-fs: 19px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+/* Compact size */
+.ts-sh--compact .ts-sh__title {
+	--ts-fs: clamp(1.5rem, 2.6vw, 1.9rem);
+	font-size: var(--ts-fs);
+}
+
+/* Light text for dark backgrounds */
+.ts-sh--light .ts-sh__title {
+	color: #fff;
+}
+
+.ts-sh--light .ts-sh__desc {
+	color: rgba(255, 255, 255, .72);
+}
+
+/* 1.9.0: words in colour inside the heading (controls: Words in colour). */
+.ts-sh__mark {
+	color: var(--ts-terra);
+}

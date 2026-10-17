@@ -1,0 +1,25 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="skyM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFEAF6"/><stop offset="1" stop-color="#FBF1E1"/></linearGradient></defs>
+          <rect width="480" height="300" fill="url(#skyM)"/>
+          <circle cx="380" cy="70" r="26" fill="#FFC300" opacity=".85"/>
+          <path d="M0 175 L60 120 L110 150 L170 95 L240 145 L300 105 L370 150 L430 115 L480 140 L480 200 L0 200 Z" fill="#B88B67"/>
+          <path d="M0 190 L80 155 L150 178 L230 150 L320 180 L400 158 L480 175 L480 205 L0 205 Z" fill="#9C7356"/>
+          <!-- fort on rock -->
+          <path d="M60 205 L80 168 L120 162 L140 205 Z" fill="#8A6248"/>
+          <rect x="88" y="140" width="26" height="28" fill="#F1E2CC"/>
+          <path d="M88 140 h5 v-5 h5 v5 h6 v-5 h5 v5 h5 v0" fill="#F1E2CC"/>
+          <!-- low white town -->
+          <g fill="#FFFCF6">
+            <rect x="150" y="186" width="34" height="20"/><rect x="186" y="180" width="26" height="26"/><rect x="214" y="190" width="38" height="16"/>
+            <rect x="256" y="184" width="22" height="22"/><rect x="280" y="188" width="44" height="18"/><rect x="326" y="182" width="26" height="24"/>
+            <rect x="356" y="190" width="40" height="16"/>
+          </g>
+          <path d="M228 190 v-14 a8 8 0 0 1 16 0 v14 z" fill="#E7D3B4"/>
+          <rect x="250" y="168" width="4" height="22" fill="#E7D3B4"/>
+          <rect x="0" y="205" width="480" height="95" fill="#0392CC"/>
+          <path d="M0 225 Q60 218 120 225 T240 225 T360 225 T480 225" stroke="#7FD0EE" stroke-width="2" fill="none" opacity=".7"/>
+          <path d="M0 255 Q60 248 120 255 T240 255 T360 255 T480 255" stroke="#7FD0EE" stroke-width="2" fill="none" opacity=".5"/>
+          <!-- dhow -->
+          <path d="M300 250 L380 250 L368 266 L312 266 Z" fill="#6B4636"/>
+          <path d="M338 248 L338 196 L368 244 Z" fill="#FFFCF6"/>
+        </svg>

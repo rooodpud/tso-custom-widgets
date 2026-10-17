@@ -1,0 +1,166 @@
+/* TS Season Matrix (1.10.0) — the drafts' ".year" chart. */
+.ts-ym {
+	--ts-ym-gap: 4px;
+	--ts-ym-long: inline;
+	--ts-ym-short: none;
+	--ts-ym-great: var(--ts-oasis);
+	--ts-ym-good: var(--ts-gold);
+	--ts-ym-tough: rgba(56, 37, 32, .1);
+	--ts-ym-outline: var(--ts-esp);
+	--ts-ym-hover: var(--ts-terra);
+}
+
+.ts-w .ts-ym__table {
+	width: 100%;
+	margin: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: var(--ts-ym-gap);
+	table-layout: fixed;
+	background: none;
+	font-size: inherit;
+}
+
+.ts-ym__namecol {
+	width: 150px;
+}
+
+/* Theme table styles are reset: no cell borders, backgrounds or padding. */
+.ts-w .ts-ym__table th,
+.ts-w .ts-ym__table td {
+	padding: 0;
+	border: 0;
+	background: none;
+	vertical-align: middle;
+	text-align: left;
+	line-height: 1.62;
+}
+
+.ts-w .ts-ym__table thead th,
+.ts-w .ts-ym__table thead td {
+	padding-bottom: 4px;
+}
+
+.ts-w .ts-ym__table .ts-ym__month {
+	font-size: 13px;
+	font-weight: 700;
+	text-align: center;
+	color: var(--ts-muted-2);
+}
+
+.ts-w .ts-ym__table .ts-ym__month.is-now {
+	color: var(--ts-esp);
+}
+
+.ts-ym__long {
+	display: var(--ts-ym-long);
+}
+
+.ts-ym__short {
+	display: var(--ts-ym-short);
+}
+
+.ts-w .ts-ym__table .ts-ym__name {
+	overflow: hidden;
+	font-family: var(--ts-font-head);
+	font-size: 15px;
+	font-weight: 700;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: var(--ts-esp);
+}
+
+.ts-ym__name a {
+	border-bottom: 1.5px solid transparent;
+	color: inherit;
+	text-decoration: none;
+}
+
+.ts-ym__name a:hover {
+	border-color: var(--ts-ym-hover);
+}
+
+.ts-w .ts-ym__table .ts-ym__cell {
+	height: 34px;
+	border-radius: 8px;
+}
+
+.ts-w .ts-ym__table .ts-ym__cell.is-great {
+	background: var(--ts-ym-great);
+}
+
+.ts-w .ts-ym__table .ts-ym__cell.is-good {
+	background: var(--ts-ym-good);
+}
+
+.ts-w .ts-ym__table .ts-ym__cell.is-tough {
+	background: var(--ts-ym-tough);
+}
+
+.ts-w .ts-ym__table .ts-ym__cell.is-now {
+	outline: 3px solid var(--ts-ym-outline);
+	outline-offset: -1px;
+}
+
+.ts-ym__legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 22px;
+	margin: 20px 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--ts-muted);
+}
+
+.ts-w .ts-ym__legend li {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+}
+
+.ts-ym__swatch {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 5px;
+}
+
+.ts-ym__swatch.is-great {
+	background: var(--ts-ym-great);
+}
+
+.ts-ym__swatch.is-good {
+	background: var(--ts-ym-good);
+}
+
+.ts-ym__swatch.is-tough {
+	background: var(--ts-ym-tough);
+}
+
+/* Visible to screen readers only. */
+.ts-ym__sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.ts-ym__table td {
+	position: relative;
+}
+
+@media (max-width: 640px) {
+	.ts-w .ts-ym__table .ts-ym__month {
+		font-size: 10.5px;
+	}
+
+	.ts-w .ts-ym__table .ts-ym__name {
+		font-size: 12px;
+	}
+}

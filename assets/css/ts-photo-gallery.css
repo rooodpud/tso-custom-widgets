@@ -1,0 +1,248 @@
+/* TS Photo Gallery (1.13.0): category buttons, a wall of pictures and an enlarged view.
+ * Columns and gap are variables, set by the Columns / Space controls.
+ */
+.ts-pgal {
+	--ts-pgal-cols: 3;
+	--ts-pgal-gap: 14px;
+}
+
+@media (max-width: 1024px) {
+	.ts-pgal {
+		--ts-pgal-cols: 2;
+	}
+}
+
+@media (max-width: 767px) {
+	.ts-pgal {
+		--ts-pgal-gap: 10px;
+	}
+}
+
+.ts-pgal__filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 28px;
+}
+
+.ts-w .ts-pgal__filter {
+	margin: 0;
+	padding: 10px 20px;
+	border: 2px solid var(--ts-line);
+	border-radius: 100px;
+	background: transparent;
+	color: var(--ts-muted);
+	font-family: var(--ts-font-body);
+	font-size: 14.5px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-transform: none;
+	letter-spacing: 0;
+	cursor: pointer;
+	transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.ts-w .ts-pgal__filter:hover,
+.ts-w .ts-pgal__filter:focus {
+	background: transparent;
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-pgal__filter[aria-pressed="true"] {
+	background: var(--ts-esp);
+	border-color: var(--ts-esp);
+	color: #fff;
+}
+
+.ts-w .ts-pgal__filter:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+/* Natural shapes: columns, each picture keeps its own proportions. */
+.ts-pgal--natural .ts-pgal__grid {
+	column-count: var(--ts-pgal-cols);
+	column-gap: var(--ts-pgal-gap);
+}
+
+.ts-pgal--natural .ts-pgal__item {
+	display: inline-block;
+	width: 100%;
+	margin: 0 0 var(--ts-pgal-gap);
+	break-inside: avoid;
+}
+
+/* Equal tiles: a grid, every picture cropped to the same shape. */
+.ts-pgal--landscape .ts-pgal__grid,
+.ts-pgal--square .ts-pgal__grid,
+.ts-pgal--portrait .ts-pgal__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--ts-pgal-cols), minmax(0, 1fr));
+	gap: var(--ts-pgal-gap);
+}
+
+.ts-pgal--landscape .ts-pgal__frame { aspect-ratio: 4 / 3; }
+.ts-pgal--square .ts-pgal__frame { aspect-ratio: 1 / 1; }
+.ts-pgal--portrait .ts-pgal__frame { aspect-ratio: 3 / 4; }
+
+.ts-pgal--landscape .ts-pgal__img,
+.ts-pgal--square .ts-pgal__img,
+.ts-pgal--portrait .ts-pgal__img {
+	height: 100%;
+	object-fit: cover;
+}
+
+.ts-pgal__item {
+	margin: 0;
+}
+
+.ts-pgal__item[hidden] {
+	display: none;
+}
+
+.ts-w .ts-pgal__frame {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-radius: 14px;
+	background: var(--ts-sand);
+	line-height: 0;
+}
+
+.ts-w button.ts-pgal__open {
+	cursor: zoom-in;
+}
+
+.ts-w button.ts-pgal__open:hover,
+.ts-w button.ts-pgal__open:focus {
+	background: var(--ts-sand);
+}
+
+.ts-w button.ts-pgal__open:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-pgal__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform .35s ease;
+}
+
+.ts-pgal__item:hover .ts-pgal__img {
+	transform: scale(1.03);
+}
+
+.ts-pgal .ts-pic__caption {
+	margin-top: 8px;
+	color: var(--ts-muted);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-pgal__img {
+		transition: none;
+	}
+
+	.ts-pgal__item:hover .ts-pgal__img {
+		transform: none;
+	}
+}
+
+/* ---------- Enlarged view (added to the page by ts-photo-gallery.js) ---------- */
+.ts-pgal-lb {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 56px 64px;
+	background: rgba(24, 14, 11, .92);
+	color: #fff;
+	font-family: var(--e-global-typography-ts_body-font-family, 'Karla'), sans-serif;
+}
+
+.ts-pgal-lb[hidden] {
+	display: none;
+}
+
+.ts-pgal-lb__fig {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0;
+}
+
+.ts-pgal-lb__img {
+	display: block;
+	max-width: 100%;
+	max-height: calc(100vh - 150px);
+	border-radius: 8px;
+	object-fit: contain;
+}
+
+.ts-pgal-lb__cap {
+	min-height: 1.4em;
+	font-size: 15px;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.ts-pgal-lb button {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .14);
+	color: #fff;
+	font-size: 26px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.ts-pgal-lb button:hover,
+.ts-pgal-lb button:focus {
+	background: rgba(255, 255, 255, .28);
+	color: #fff;
+}
+
+.ts-pgal-lb button:focus-visible {
+	outline: 3px solid #fff;
+	outline-offset: 2px;
+}
+
+.ts-pgal-lb__close { top: 14px; right: 14px; }
+.ts-pgal-lb__prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.ts-pgal-lb__next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+.ts-pgal-lb__count {
+	position: absolute;
+	top: 22px;
+	left: 20px;
+	font-size: 14px;
+	opacity: .8;
+}
+
+@media (max-width: 767px) {
+	.ts-pgal-lb {
+		padding: 64px 12px 48px;
+	}
+
+	.ts-pgal-lb__prev { top: auto; bottom: 10px; left: 14px; transform: none; }
+	.ts-pgal-lb__next { top: auto; bottom: 10px; right: 14px; transform: none; }
+}

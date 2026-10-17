@@ -1,0 +1,369 @@
+/* TS Destination Atlas (1.10.0) — the drafts' month picker, map and list. */
+.ts-at {
+	--ts-at-great: var(--ts-oasis-d);
+	--ts-at-good: var(--ts-gold);
+	--ts-at-tough: #B9ABA3;
+	--ts-at-ring: var(--ts-terra);
+	--ts-at-hover: var(--ts-terra);
+	--ts-at-row-hover: var(--ts-terra);
+	--ts-at-on-bg: var(--ts-esp);
+	--ts-at-on-text: #fff;
+}
+
+/* ---------- Month picker ---------- */
+.ts-at__bar {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 20px;
+	align-items: center;
+	margin-bottom: 22px;
+	padding: 20px 24px;
+	border: 1px solid var(--ts-line);
+	border-radius: 28px;
+	background: var(--ts-cream);
+}
+
+.ts-at__label {
+	font-family: var(--ts-font-head);
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.ts-at__label small {
+	display: block;
+	font-family: var(--ts-font-body);
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ts-muted-2);
+}
+
+.ts-at__months {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: 6px;
+}
+
+.ts-w .ts-at__month {
+	margin: 0;
+	padding: 9px 0;
+	border: 1.5px solid var(--ts-line);
+	border-radius: 12px;
+	background: #fff;
+	font-family: var(--ts-font-body);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.62;
+	color: var(--ts-esp);
+	text-transform: none;
+	letter-spacing: 0;
+	cursor: pointer;
+	transition: background .2s, color .2s, border-color .2s;
+}
+
+.ts-w .ts-at__month:hover {
+	border-color: var(--ts-at-hover);
+	background: #fff;
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-at__month[aria-pressed="true"] {
+	border-color: var(--ts-at-on-bg);
+	background: var(--ts-at-on-bg);
+	color: var(--ts-at-on-text);
+}
+
+.ts-w .ts-at__month:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+/* ---------- Map and list ---------- */
+.ts-at__grid {
+	display: grid;
+	grid-template-columns: minmax(0, var(--ts-at-map, 1.02fr)) minmax(0, var(--ts-at-list, 1fr));
+	gap: 28px;
+	align-items: start;
+}
+
+.ts-at__map {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid var(--ts-line);
+	border-radius: 28px;
+	background: #E7F1F4;
+}
+
+.ts-at__map svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: none;
+}
+
+.ts-at__legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	padding: 14px 20px;
+	border-top: 1px solid var(--ts-line);
+	background: var(--ts-cream);
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ts-muted);
+}
+
+.ts-at__legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+}
+
+.ts-at__sw {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+}
+
+.ts-at__sw--great {
+	background: var(--ts-at-great);
+}
+
+.ts-at__sw--good {
+	background: var(--ts-at-good);
+}
+
+.ts-at__sw--tough {
+	background: var(--ts-at-tough);
+}
+
+.ts-at__sw--dash,
+.ts-at__sw--fly {
+	width: 20px;
+	height: 0;
+	border-radius: 0;
+}
+
+.ts-at__sw--dash {
+	border-top: 2px dashed var(--ts-terra);
+}
+
+.ts-at__sw--fly {
+	border-top: 2px dotted var(--ts-tq-d);
+}
+
+/* Pins (drawn inside the map svg). */
+.ts-at__pin {
+	cursor: pointer;
+}
+
+.ts-at__pin .badge {
+	transition: fill .25s;
+}
+
+.ts-at__pin .num {
+	fill: #fff;
+	font-family: var(--ts-font-head);
+	font-size: 14px;
+	font-weight: 800;
+	text-anchor: middle;
+	pointer-events: none;
+}
+
+.ts-at__pin .lbl {
+	fill: var(--ts-esp);
+	font-family: var(--ts-font-head);
+	font-size: 13.5px;
+	font-weight: 700;
+	paint-order: stroke;
+	stroke: #E7F1F4;
+	stroke-width: 4px;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+
+.ts-at__pin .ring {
+	fill: none;
+	stroke: var(--ts-at-ring);
+	stroke-width: 2.5px;
+	opacity: 0;
+	transition: opacity .2s;
+}
+
+.ts-at__pin.s2 .badge {
+	fill: var(--ts-at-great);
+}
+
+.ts-at__pin.s1 .badge {
+	fill: var(--ts-at-good);
+}
+
+.ts-at__pin.s1 .num {
+	fill: var(--ts-esp);
+}
+
+.ts-at__pin.s0 .badge {
+	fill: var(--ts-at-tough);
+}
+
+.ts-at__pin.s0 .lbl {
+	opacity: .6;
+}
+
+.ts-at__pin.hot .badge {
+	stroke: var(--ts-esp);
+	stroke-width: 3px;
+}
+
+.ts-at__pin.hot .ring {
+	opacity: 1;
+}
+
+/* List rows. */
+.ts-at__list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.ts-w .ts-at__row {
+	display: grid;
+	grid-template-columns: 40px minmax(0, 1fr) auto;
+	gap: 6px 14px;
+	align-items: center;
+	padding: 14px 16px;
+	border: 1.5px solid var(--ts-line);
+	border-radius: 18px;
+	background: var(--ts-cream);
+	color: var(--ts-esp);
+	text-decoration: none;
+	transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+
+.ts-w .ts-at__row:hover,
+.ts-w .ts-at__row.hot {
+	border-color: var(--ts-at-row-hover);
+	box-shadow: 0 8px 20px rgba(56, 37, 32, .07);
+	transform: translateX(3px);
+	color: var(--ts-esp);
+	text-decoration: none;
+}
+
+.ts-at__num {
+	display: grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: var(--ts-esp);
+	font-family: var(--ts-font-head);
+	font-size: 15px;
+	font-weight: 800;
+	color: #fff;
+}
+
+.ts-at__row.s2 .ts-at__num {
+	background: var(--ts-at-great);
+}
+
+.ts-at__row.s1 .ts-at__num {
+	background: var(--ts-at-good);
+	color: var(--ts-esp);
+}
+
+.ts-at__row.s0 .ts-at__num {
+	background: var(--ts-at-tough);
+}
+
+.ts-w .ts-at__name {
+	font-size: 18px;
+	line-height: 1.2;
+}
+
+.ts-at__sub {
+	margin-top: 3px;
+	font-size: 14px;
+	line-height: 1.4;
+	color: var(--ts-muted);
+}
+
+.ts-at__sub b {
+	font-weight: 700;
+	color: var(--ts-esp);
+}
+
+.ts-at__state {
+	padding: 6px 11px;
+	border-radius: 100px;
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.62;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.ts-at__state.s2 {
+	background: rgba(56, 168, 51, .14);
+	color: var(--ts-oasis-d);
+}
+
+.ts-at__state.s1 {
+	background: rgba(255, 195, 0, .22);
+	color: #7A5A00;
+}
+
+.ts-at__state.s0 {
+	background: rgba(56, 37, 32, .08);
+	color: var(--ts-muted);
+}
+
+.ts-at__note {
+	grid-column: 2 / 4;
+	margin-top: 2px;
+	padding-top: 8px;
+	border-top: 1px dashed var(--ts-line);
+	font-size: 13.5px;
+	color: var(--ts-muted);
+}
+
+.ts-at__note:empty {
+	display: none;
+}
+
+.ts-at__foot {
+	margin-top: 14px;
+	font-size: 14px;
+	color: var(--ts-muted-2);
+}
+
+@media (max-width: 1024px) {
+	.ts-w .ts-at__row:hover,
+	.ts-w .ts-at__row.hot {
+		transform: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.ts-w .ts-at__row {
+		grid-template-columns: 36px minmax(0, 1fr);
+	}
+
+	.ts-at__state {
+		grid-column: 2;
+		justify-self: start;
+	}
+
+	.ts-at__note {
+		grid-column: 1 / 3;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-at__pin .badge,
+	.ts-at__pin .ring,
+	.ts-w .ts-at__row,
+	.ts-w .ts-at__month {
+		transition: none;
+	}
+}

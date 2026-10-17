@@ -1,0 +1,16 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="480" height="300" fill="#DDF0F8"/>
+          <path d="M0 60 L60 30 L130 90 L190 180 L190 200 L0 200 Z" fill="#9C7356"/>
+          <path d="M480 50 L420 26 L360 80 L300 170 L296 200 L480 200 Z" fill="#8A6248"/>
+          <path d="M150 200 L210 120 L250 100 L290 130 L330 200 Z" fill="#B88B67" opacity=".8"/>
+          <rect x="0" y="196" width="480" height="104" fill="#0392CC"/>
+          <path d="M0 196 L190 196 L170 214 L0 222 Z" fill="#6B4636" opacity=".35"/>
+          <path d="M480 196 L296 196 L320 212 L480 220 Z" fill="#6B4636" opacity=".35"/>
+          <path d="M0 240 Q60 234 120 240 T240 240 T360 240 T480 240" stroke="#7FD0EE" stroke-width="2" fill="none" opacity=".7"/>
+          <!-- dhow -->
+          <path d="M196 252 L290 252 L276 270 L210 270 Z" fill="#6B4636"/>
+          <rect x="208" y="238" width="62" height="14" fill="#FFFCF6"/>
+          <path d="M206 238 L272 238 L272 232 L206 232 Z" fill="#F3692A"/>
+          <!-- dolphins -->
+          <g fill="#0D76AB"><path d="M340 262 Q356 244 374 260 L368 260 Q356 252 346 264 Z"/><path d="M380 272 Q394 256 410 270 L404 270 Q394 264 386 274 Z"/></g>
+        </svg>

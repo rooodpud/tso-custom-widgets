@@ -1,0 +1,174 @@
+/* TS Testimonials */
+.ts-testi {
+	--ts-testi-cols: 3;
+	--ts-testi-gap: 24px;
+	--ts-testi-summary-space: 40px;
+	--ts-testi-star-on: var(--ts-gold);
+	--ts-testi-star-off: rgba(56, 37, 32, .16);
+}
+
+/* ---------- Stars (filled to the rating) ---------- */
+.ts-stars {
+	position: relative;
+	display: inline-block;
+	flex: none;
+	letter-spacing: 2px;
+	line-height: 1.62;
+	white-space: nowrap;
+	color: var(--ts-testi-star-off);
+}
+
+.ts-stars__fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--ts-rate, 100%);
+	overflow: hidden;
+	color: var(--ts-testi-star-on);
+}
+
+/* ---------- Rating summary ---------- */
+.ts-w .ts-testi__summary {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	max-width: 100%;
+	margin-bottom: var(--ts-testi-summary-space);
+	padding: 14px 22px;
+	border: 1px solid var(--ts-line);
+	border-radius: 16px;
+	background: rgba(56, 37, 32, .03);
+	color: inherit;
+	text-decoration: none;
+}
+
+.ts-testi__summary .ts-stars {
+	font-size: 18px;
+}
+
+.ts-testi__summary-text {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.ts-testi__score {
+	--ts-fs: 20px;
+	--ts-lh: 1.62;
+	display: block;
+	font-family: var(--ts-font-head);
+	font-size: var(--ts-fs);
+	font-weight: 700;
+	line-height: var(--ts-lh);
+	color: var(--ts-esp);
+}
+
+.ts-testi__count {
+	display: block;
+	font-size: 13px;
+	line-height: 1.62;
+	color: var(--ts-muted);
+}
+
+/* ---------- Review cards ---------- */
+.ts-testi__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--ts-testi-cols), minmax(0, 1fr));
+	gap: var(--ts-testi-gap);
+}
+
+.ts-w .ts-testi__card {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 26px;
+	border: 1px solid var(--ts-line);
+	border-radius: 18px;
+	background: var(--ts-cream);
+}
+
+.ts-testi__card .ts-stars {
+	align-self: flex-start;
+	margin-bottom: 14px;
+	font-size: 14px;
+}
+
+/* Theme styles for blockquote/figcaption are reset here. */
+.ts-w .ts-testi__quote {
+	--ts-fs: 15px;
+	--ts-lh: 1.6;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: var(--ts-fs);
+	font-style: normal;
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+	quotes: none;
+}
+
+.ts-w .ts-testi__quote::before,
+.ts-w .ts-testi__quote::after {
+	content: none;
+}
+
+.ts-w .ts-testi__quote p {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+
+.ts-w .ts-testi__attrib {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 18px 0 0;
+	padding: 0;
+	font-size: 13.5px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.62;
+	text-align: left;
+	color: var(--ts-muted);
+}
+
+/* .ts-w raises this above Elementor's ".elementor img" reset. */
+.ts-w .ts-testi__photo {
+	flex: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* ---------- Light text for dark backgrounds ---------- */
+.ts-testi--light {
+	--ts-testi-star-off: rgba(255, 255, 255, .22);
+}
+
+.ts-w.ts-testi--light .ts-testi__summary {
+	border-color: rgba(255, 255, 255, .14);
+	background: rgba(255, 255, 255, .06);
+}
+
+.ts-testi--light .ts-testi__score {
+	color: #fff;
+}
+
+.ts-testi--light .ts-testi__count {
+	color: rgba(255, 255, 255, .6);
+}
+
+.ts-w.ts-testi--light .ts-testi__card {
+	border-color: rgba(255, 255, 255, .1);
+	background: rgba(255, 255, 255, .05);
+}
+
+.ts-w.ts-testi--light .ts-testi__quote {
+	color: rgba(255, 255, 255, .88);
+}
+
+.ts-w.ts-testi--light .ts-testi__attrib {
+	color: rgba(255, 255, 255, .6);
+}

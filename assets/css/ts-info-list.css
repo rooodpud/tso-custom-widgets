@@ -1,0 +1,445 @@
+/* TS Info List (also used inside TS Split Feature) */
+.ts-info {
+	--ts-info-gap: 10px;
+	--ts-info-line: var(--ts-line);
+	margin: 0;
+	padding: 0;
+}
+
+.ts-info__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-info__item {
+	margin: 0;
+}
+
+.ts-info__value {
+	font-weight: 700;
+}
+
+/* ---------- Rows: label ........ value ---------- */
+.ts-info--rows {
+	--ts-info-gap: 16px;
+	display: flex;
+	flex-direction: column;
+}
+
+.ts-info__row {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	padding: var(--ts-info-gap) 0;
+	border-top: 1px solid var(--ts-info-line);
+	font-size: 14.5px;
+	line-height: 1.62;
+}
+
+.ts-info__row:last-child {
+	border-bottom: 1px solid var(--ts-info-line);
+}
+
+.ts-info--rows .ts-info__label {
+	margin: 0;
+	font-weight: 600;
+	color: var(--ts-muted);
+}
+
+.ts-info--rows .ts-info__value {
+	margin: 0;
+	text-align: right;
+	color: var(--ts-esp);
+}
+
+/* ---------- Tags and flow: pills ---------- */
+.ts-info--tags .ts-info__list,
+.ts-info--flow .ts-info__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--ts-info-gap);
+}
+
+.ts-info__pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 9px 16px;
+	border: 1px solid var(--ts-line);
+	border-radius: 100px;
+	background: var(--ts-sand);
+	color: var(--ts-muted);
+	font-size: 13.5px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.3: drafts' line height (was 1.3). */
+}
+
+.ts-info--flow .ts-info__pill {
+	padding: 10px 18px;
+	background: var(--ts-cream);
+	color: var(--ts-esp);
+	font-size: 14px;
+}
+
+.ts-info__pill .ts-info__value {
+	color: inherit;
+}
+
+.ts-info__pill.is-highlight {
+	border-color: transparent;
+	background: var(--ts-terra);
+	color: #fff;
+}
+
+.ts-info--flow .ts-info__item {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--ts-info-gap);
+}
+
+.ts-info__arrow {
+	font-weight: 700;
+	color: rgba(56, 37, 32, .5);
+}
+
+/* ---------- Bullets ---------- */
+.ts-info--bullets .ts-info__list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--ts-info-gap);
+}
+
+.ts-info--bullets .ts-info__item {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	font-size: 14.5px;
+	font-weight: 600;
+	line-height: 1.62;
+	color: var(--ts-esp);
+}
+
+.ts-info--bullets .ts-info__item::before {
+	content: '';
+	flex: none;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: .7;
+	transform: translateY(-2px);
+}
+
+/* ---------- Listing: title + sentence ........ pill ---------- */
+.ts-info--listing {
+	--ts-info-gap: 22px;
+	list-style: none;
+}
+
+.ts-info__entry {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	margin: 0;
+	padding: var(--ts-info-gap) 0;
+	border-top: 1px solid var(--ts-info-line);
+}
+
+.ts-info__entry:last-child {
+	border-bottom: 1px solid var(--ts-info-line);
+}
+
+.ts-info__main {
+	flex: 1 1 320px;
+	min-width: 0;
+}
+
+.ts-info__title {
+	--ts-fs: 18px;
+	--ts-lh: 1.62;
+	margin-bottom: 4px;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-info__desc {
+	--ts-fs: 14.5px;
+	--ts-lh: 1.62;
+	max-width: 620px;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+.ts-info--listing .ts-info__pill {
+	flex: none;
+	padding: 8px 16px;
+	background: var(--ts-cream);
+	font-size: 13px;
+	text-decoration: none;
+}
+
+/* Same weight as the Link pill colour controls, which load later and win. */
+.ts-info--listing .ts-info__pill.is-link,
+.ts-info--listing .ts-info__pill.is-link:hover,
+.ts-info--listing .ts-info__pill.is-link:focus {
+	border-color: rgba(243, 105, 42, .4);
+	color: var(--ts-terra-d);
+	text-decoration: none;
+}
+
+.ts-info--listing .ts-info__pill.is-link:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-info--light .ts-info__title {
+	color: #fff;
+}
+
+.ts-info--light .ts-info__desc {
+	color: rgba(255, 255, 255, .68);
+}
+
+/* ---------- Light text for dark backgrounds ---------- */
+.ts-info--light {
+	--ts-info-line: rgba(255, 255, 255, .14);
+}
+
+.ts-info--light.ts-info--rows .ts-info__label {
+	color: rgba(255, 255, 255, .68);
+}
+
+.ts-info--light.ts-info--rows .ts-info__value,
+.ts-info--light.ts-info--bullets .ts-info__item {
+	color: rgba(255, 255, 255, .92);
+}
+
+.ts-info--light .ts-info__pill {
+	border-color: rgba(255, 255, 255, .16);
+	background: rgba(255, 255, 255, .08);
+	color: #fff;
+}
+
+.ts-info--light .ts-info__pill.is-highlight {
+	border-color: transparent;
+	background: var(--ts-terra);
+}
+
+.ts-info--light .ts-info__arrow {
+	color: rgba(255, 255, 255, .4);
+}
+
+/* ---------- Bullet look "tick" (1.6.0; also the Split Feature checklist) ---------- */
+.ts-info-wrap--tick .ts-info--bullets .ts-info__item::before {
+	content: '\2713';
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	background: none;
+	color: var(--ts-oasis);
+	font-weight: 900;
+	opacity: 1;
+	transform: none;
+}
+
+.ts-info-wrap--tick .ts-info--light.ts-info--bullets .ts-info__item {
+	color: rgba(255, 255, 255, .85);
+}
+
+/* ---------- Details: icon, small label, value underneath (1.7.0, contact details) ---------- */
+.ts-info--details {
+	--ts-info-gap: 14px;
+	list-style: none;
+}
+
+.ts-info__detail {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin: 0;
+	padding: var(--ts-info-gap) 0;
+	border-top: 1px solid var(--ts-info-line);
+}
+
+.ts-info__detail:first-child {
+	padding-top: 0;
+	border-top: 0;
+}
+
+.ts-info__detail:last-child {
+	padding-bottom: 0;
+}
+
+.ts-info__icon {
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	background: rgba(56, 37, 32, .06);
+	color: var(--ts-terra);
+	font-size: 18px;
+	line-height: 1;
+}
+
+.ts-info__icon svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.ts-info--details .ts-info__main {
+	min-width: 0;
+}
+
+.ts-info--details .ts-info__label {
+	font-size: 11.5px;
+	font-weight: 700;
+	line-height: 1.62;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-info--details .ts-info__value {
+	display: block;
+	margin-top: 2px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.62;
+	color: var(--ts-esp);
+	overflow-wrap: anywhere;
+}
+
+.ts-info--details .ts-info__value-wrap {
+	margin-top: 2px;
+}
+
+.ts-info--details .ts-info__value-wrap .ts-info__value {
+	display: inline;
+	margin: 0;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(56, 37, 32, .3);
+}
+
+.ts-info--details a.ts-info__value:hover,
+.ts-info--details a.ts-info__value:focus {
+	border-bottom-color: currentColor;
+}
+
+.ts-info--light.ts-info--details .ts-info__icon {
+	background: rgba(255, 255, 255, .1);
+	color: var(--ts-gold);
+}
+
+.ts-info--light.ts-info--details .ts-info__label {
+	color: rgba(255, 255, 255, .55);
+}
+
+.ts-info--light.ts-info--details .ts-info__value {
+	color: #fff;
+}
+
+.ts-info--light.ts-info--details .ts-info__value-wrap .ts-info__value {
+	border-bottom-color: rgba(255, 255, 255, .3);
+}
+
+.ts-info--light.ts-info--details a.ts-info__value:hover,
+.ts-info--light.ts-info--details a.ts-info__value:focus {
+	border-bottom-color: #fff;
+}
+
+/* ---------- Checklist: items the visitor can tick off (1.8.0, packing list) ---------- */
+.ts-info--checklist {
+	--ts-info-gap: 14px;
+}
+
+.ts-info--framed .ts-info__list {
+	padding: 10px 22px;
+	border: 1px solid var(--ts-line);
+	border-radius: 18px;
+	background: var(--ts-sand);
+}
+
+.ts-info--checklist .ts-info__item {
+	border-top: 1px solid var(--ts-info-line);
+}
+
+.ts-info--checklist .ts-info__item:first-child {
+	border-top: 0;
+}
+
+.ts-check {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin: 0;
+	padding: var(--ts-info-gap) 0;
+	font-size: 15px;
+	line-height: 1.62;
+	color: var(--ts-esp);
+	cursor: pointer;
+}
+
+.ts-w .ts-check__box {
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin: 2px 0 0;
+	accent-color: var(--ts-oasis);
+	cursor: pointer;
+}
+
+.ts-check__box:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-info--strike .ts-check__box:checked + .ts-check__text {
+	text-decoration: line-through;
+	color: var(--ts-muted-2);
+}
+
+.ts-check__count {
+	margin-top: 12px;
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--ts-muted-2);
+}
+
+.ts-info--light.ts-info--framed .ts-info__list {
+	border-color: rgba(255, 255, 255, .16);
+	background: rgba(255, 255, 255, .06);
+}
+
+.ts-info--light .ts-check {
+	color: rgba(255, 255, 255, .92);
+}
+
+.ts-info--light.ts-info--strike .ts-check__box:checked + .ts-check__text,
+.ts-info--light .ts-check__count {
+	color: rgba(255, 255, 255, .55);
+}
+
+/* 1.11.0: Tags look, a pill with a link (quick links). */
+.ts-info--tags .ts-info__pill.is-link {
+	text-decoration: none;
+	transition: border-color .2s;
+}
+
+.ts-info--tags .ts-info__pill.is-link:hover {
+	border-color: var(--ts-terra);
+	text-decoration: none;
+}
+
+.ts-info--tags .ts-info__pill.is-link:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}

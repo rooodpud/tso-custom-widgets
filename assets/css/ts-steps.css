@@ -1,0 +1,310 @@
+/* TS Steps */
+.ts-steps {
+	--ts-step-gap: 24px;
+	--ts-step-size: 40px;
+	--ts-step-line: var(--ts-line);
+}
+
+.ts-steps--marker-dot {
+	--ts-step-size: 14px;
+}
+
+.ts-steps__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-step {
+	position: relative;
+	min-width: 0;
+	margin: 0;
+}
+
+.ts-step__body {
+	min-width: 0;
+}
+
+/* ---------- Marker ---------- */
+.ts-step__marker {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: var(--ts-step-size);
+	height: var(--ts-step-size);
+	border: 2px solid transparent;
+	border-radius: 50%;
+	font-family: var(--ts-font-head);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1;
+	background: var(--ts-tone-tile);
+	color: var(--ts-tone-fg);
+}
+
+/* --ts-step-c: optional per-step marker colour (control: Marker colour for this step). */
+.ts-steps--marker-outline .ts-step__marker {
+	background: var(--ts-cream);
+	border-color: var(--ts-step-c, var(--ts-tone-dot));
+}
+
+.ts-steps--marker-filled .ts-step__marker {
+	background: var(--ts-step-c, var(--ts-tone-dot));
+	color: #fff;
+}
+
+.ts-steps--marker-soft .ts-step__marker {
+	color: var(--ts-step-c, var(--ts-tone-fg));
+}
+
+.ts-steps--marker-filled .ts-tone--gold .ts-step__marker {
+	color: var(--ts-esp);
+}
+
+.ts-steps--marker-dot .ts-step__marker {
+	border-width: 3px;
+	border-color: var(--ts-cream);
+	background: var(--ts-step-c, var(--ts-tone-dot));
+}
+
+/* ---------- Text ---------- */
+.ts-step__label {
+	margin-bottom: 4px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .04em;
+	line-height: 1.62;
+	text-transform: uppercase;
+	color: var(--ts-tone-fg);
+}
+
+.ts-step__title {
+	--ts-fs: 17px;
+	--ts-lh: 1.62;
+	margin-bottom: 6px;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-step__text {
+	--ts-fs: 14.5px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+/* Extra line: "See: Al Alam Palace · …" (bold start, lighter rest). */
+.ts-step__details {
+	margin-top: 10px;
+	font-size: 13.5px;
+	font-weight: 500;
+	line-height: 1.62;
+	color: var(--ts-muted);
+}
+
+.ts-step__details b {
+	font-weight: 700;
+	color: var(--ts-esp);
+}
+
+/* Title and text columns stack unless "Text position: beside" makes the body a grid. */
+.ts-step__main > :first-child {
+	margin-top: 0;
+}
+
+/* ---------- Vertical list ---------- */
+.ts-steps--list .ts-steps__list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--ts-step-gap);
+}
+
+.ts-steps--list .ts-step {
+	display: flex;
+	gap: 18px;
+	align-items: flex-start;
+}
+
+/* A line joining the markers: one segment under each marker, stopping short of the next. */
+.ts-steps--list.ts-steps--line .ts-steps__list {
+	gap: 0;
+}
+
+.ts-steps--list.ts-steps--line .ts-step {
+	padding-bottom: var(--ts-step-gap);
+}
+
+.ts-steps--list.ts-steps--line .ts-step:last-child {
+	padding-bottom: 0;
+}
+
+.ts-steps--list.ts-steps--line .ts-step:not(:last-child)::before {
+	content: '';
+	position: absolute;
+	top: calc(var(--ts-step-size) + 6px);
+	bottom: 6px;
+	/* Centred in the marker column (control: Marker column width; defaults to the marker size). */
+	left: calc(var(--ts-step-col, var(--ts-step-size)) / 2 - var(--ts-step-line-w, 2px) / 2);
+	width: var(--ts-step-line-w, 2px);
+	border-radius: var(--ts-step-line-w, 2px);
+	background: linear-gradient(180deg, var(--ts-step-line), var(--ts-step-line-b, var(--ts-step-line)));
+}
+
+/* A thin rule between steps. */
+.ts-steps--list.ts-steps--dividers .ts-steps__list {
+	gap: 0;
+}
+
+.ts-steps--list.ts-steps--dividers .ts-step {
+	padding: var(--ts-step-gap) 0;
+	border-top: 1px solid var(--ts-step-line);
+}
+
+.ts-steps--list.ts-steps--dividers .ts-step:last-child {
+	border-bottom: 1px solid var(--ts-step-line);
+}
+
+/* ---------- Horizontal strip ---------- */
+.ts-steps--strip .ts-steps__list {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--ts-step-gap);
+	overflow: clip;
+}
+
+.ts-steps--strip .ts-step {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.ts-steps--strip.ts-steps--line .ts-step:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	top: calc(var(--ts-step-size) / 2 - 1px);
+	right: calc(10px - var(--ts-step-gap));
+	left: calc(var(--ts-step-size) + 10px);
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--ts-step-line), var(--ts-step-line-b, var(--ts-step-line)));
+}
+
+.ts-steps--strip.ts-steps--dividers .ts-step {
+	padding-top: 20px;
+	border-top: 1px solid var(--ts-step-line);
+}
+
+/* ---------- Light text for dark backgrounds ---------- */
+.ts-steps--light {
+	--ts-step-line: rgba(255, 255, 255, .2);
+}
+
+.ts-steps--light .ts-step__title {
+	color: #fff;
+}
+
+.ts-steps--light .ts-step__text,
+.ts-steps--light .ts-step__details {
+	color: rgba(255, 255, 255, .68);
+}
+
+.ts-steps--light .ts-step__details b {
+	color: #fff;
+}
+
+.ts-steps--light.ts-steps--marker-outline .ts-step__marker {
+	background: transparent;
+}
+
+.ts-steps--light.ts-steps--marker-dot .ts-step__marker {
+	border-color: var(--ts-esp);
+}
+
+/* ---------- 1.6.0 additions ---------- */
+
+/* Marker column wider than the marker: the marker sits centred in it (control: Marker column width). */
+.ts-steps--list .ts-step__marker {
+	margin-right: calc((var(--ts-step-col, var(--ts-step-size)) - var(--ts-step-size)) / 2);
+	margin-left: calc((var(--ts-step-col, var(--ts-step-size)) - var(--ts-step-size)) / 2);
+}
+
+/* Line colours from the steps: each segment blends from its step's colour into the next one. */
+.ts-steps--list.ts-steps--line-steps .ts-step:not(:last-child)::before {
+	background: linear-gradient(180deg, var(--ts-step-c, var(--ts-step-line)), var(--ts-step-next, var(--ts-step-c, var(--ts-step-line))));
+}
+
+/* One continuous line behind the markers, from the top of the list to the bottom. */
+.ts-steps--line-continuous .ts-steps__list {
+	position: relative;
+}
+
+.ts-steps--list.ts-steps--line-continuous .ts-step:not(:last-child)::before {
+	content: none;
+}
+
+.ts-steps--list.ts-steps--line-continuous .ts-steps__list::before {
+	content: '';
+	position: absolute;
+	top: var(--ts-step-line-inset, 8px);
+	bottom: var(--ts-step-line-inset, 8px);
+	left: calc(var(--ts-step-col, var(--ts-step-size)) / 2 - var(--ts-step-line-w, 2px) / 2);
+	width: var(--ts-step-line-w, 2px);
+	border-radius: var(--ts-step-line-w, 2px);
+	background: var(--ts-step-grad, linear-gradient(180deg, var(--ts-step-line), var(--ts-step-line-b, var(--ts-step-line))));
+}
+
+/* Dotted line (one colour: Line colour). */
+.ts-steps--list.ts-steps--line-dotted .ts-step:not(:last-child)::before,
+.ts-steps--list.ts-steps--line-dotted.ts-steps--line-continuous .ts-steps__list::before {
+	width: 0;
+	border-left: var(--ts-step-line-w, 2px) dotted var(--ts-step-line);
+	border-radius: 0;
+	background: none;
+}
+
+/* A thin rule between steps, as well as the joining line. */
+.ts-steps--rules .ts-step + .ts-step {
+	padding-top: var(--ts-step-gap);
+	border-top: 1px solid var(--ts-step-rule, var(--ts-step-rule-auto, var(--ts-line)));
+}
+
+.ts-steps--light {
+	--ts-step-rule-auto: rgba(255, 255, 255, .14);
+}
+
+/* Extra line as a small pill (e.g. "Feels like: a sweater after sunset"). */
+.ts-steps--details-pill .ts-step__details {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 6px 14px;
+	border: 1px solid var(--ts-line);
+	border-radius: 100px;
+	background: var(--ts-sand);
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.3: drafts' line height (was 1.4). */
+	color: var(--ts-muted);
+}
+
+.ts-steps--light.ts-steps--details-pill .ts-step__details {
+	border-color: rgba(255, 255, 255, .16);
+	background: rgba(255, 255, 255, .08);
+	color: #fff;
+}
+
+/* ---------- Box behind each step (1.7.0; control: Step boxes) ---------- */
+.ts-steps--boxed .ts-step {
+	padding: 26px;
+	border: 1px solid var(--ts-line);
+	border-radius: 18px;
+	background: var(--ts-cream);
+}
+
+.ts-steps--light.ts-steps--boxed .ts-step {
+	border-color: rgba(255, 255, 255, .14);
+	background: rgba(255, 255, 255, .06);
+}

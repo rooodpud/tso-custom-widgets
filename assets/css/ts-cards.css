@@ -1,0 +1,633 @@
+/* TS Cards */
+.ts-cards__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 22px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-cards--auto-height .ts-cards__grid {
+	align-items: start;
+}
+
+.ts-card {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	margin: 0;
+	padding: 26px 22px;
+	background: var(--ts-sand);
+	border: 1px solid transparent;
+	border-radius: 18px;
+}
+
+.ts-cards--outlined .ts-card {
+	padding: 24px;
+	background: var(--ts-cream);
+	border-color: var(--ts-line);
+}
+
+.ts-cards--plain .ts-card {
+	padding: 0;
+	background: transparent;
+	border-radius: 0;
+}
+
+/* Icon tile */
+.ts-card__icon {
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	margin-bottom: 18px;
+	border-radius: 13px;
+	background: var(--ts-tone-tile);
+	color: var(--ts-tone-icon);
+	font-size: 22px;
+	line-height: 1;
+}
+
+.ts-card__icon svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* Number / time label */
+.ts-card__marker {
+	margin-bottom: 14px;
+	font-family: var(--ts-font-head);
+	font-weight: 700;
+}
+
+.ts-cards--marker-dot .ts-card__marker {
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	gap: 8px;
+	font-size: 15px;
+	line-height: 1.62; /* 1.9.4: drafts' line height (was 1.2). */
+	color: var(--ts-terra-d);
+}
+
+.ts-cards--marker-dot .ts-card__marker::before {
+	content: '';
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--ts-terra);
+}
+
+.ts-cards--marker-number .ts-card__marker {
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	color: var(--ts-muted-2);
+}
+
+/* Caption, title, text */
+.ts-card__kicker {
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	color: var(--ts-terra-d);
+}
+
+.ts-card__title {
+	margin-bottom: 8px;
+	--ts-fs: 17.5px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-card__text {
+	--ts-fs: 14px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+/* Tags (pills) */
+.ts-card__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 18px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-card__chips li {
+	margin: 0;
+	padding: 8px 16px;
+	border: 1px solid var(--ts-line);
+	border-radius: 100px;
+	background: var(--ts-cream);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.62;
+}
+
+/* Link */
+.ts-w .ts-card__link {
+	align-self: flex-start;
+	margin-top: 16px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.3: drafts' line height (it inherited a tighter one). */
+	color: var(--ts-terra-d);
+	text-decoration: none;
+}
+
+.ts-w .ts-card__link:hover,
+.ts-w .ts-card__link:focus {
+	text-decoration: underline;
+}
+
+/* Facts and bottom note sit at the foot of the card */
+.ts-card__facts,
+.ts-card__meta {
+	margin-top: auto;
+	padding-top: 16px;
+	border-top: 1px solid var(--ts-line);
+}
+
+.ts-card__facts + .ts-card__meta {
+	margin-top: 0;
+	padding-top: 12px;
+	border-top: 0;
+}
+
+.ts-card__facts {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: auto;
+	font-size: 13px; /* 1.9.4: here, not on each fact, so "Facts, tags and note typography" reaches the facts. */
+}
+
+.ts-card__text + .ts-card__facts,
+.ts-card__chips + .ts-card__facts {
+	margin-top: auto;
+}
+
+.ts-card__text,
+.ts-card__chips,
+.ts-card__link {
+	margin-bottom: 20px;
+}
+
+.ts-card__text:last-child,
+.ts-card__chips:last-child,
+.ts-card__link:last-child {
+	margin-bottom: 0;
+}
+
+.ts-card__fact {
+	font-weight: 600;
+	color: var(--ts-muted);
+}
+
+.ts-card__fact b {
+	color: var(--ts-esp);
+}
+
+.ts-card__meta {
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--ts-muted);
+}
+
+/* Key facts as a timetable: coloured label column + text, right under the title. */
+.ts-cards--facts-timetable .ts-card__facts {
+	gap: 12px;
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.ts-cards--facts-timetable .ts-card__title + .ts-card__facts {
+	margin-top: 8px;
+}
+
+.ts-cards--facts-timetable .ts-card__fact {
+	display: grid;
+	grid-template-columns: 78px minmax(0, 1fr);
+	gap: 10px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.62;
+}
+
+.ts-cards--facts-timetable .ts-card__fact-label {
+	font-family: var(--ts-font-head);
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--ts-tq-d);
+}
+
+.ts-cards--facts-timetable .ts-card__fact b {
+	font-weight: 400;
+	color: var(--ts-muted);
+}
+
+/* Highlighted card: coloured border (control: Highlight border colour). */
+.ts-cards .ts-card--accent {
+	border-color: var(--ts-terra);
+}
+
+/* Highlighted (dark) card */
+.ts-cards .ts-card--dark {
+	background: var(--ts-esp);
+	border-color: var(--ts-esp);
+}
+
+.ts-card--dark .ts-card__title {
+	color: #fff;
+}
+
+.ts-card--dark .ts-card__text {
+	color: rgba(255, 255, 255, .75);
+}
+
+.ts-card--dark .ts-card__kicker,
+.ts-card--dark .ts-card__marker {
+	color: var(--ts-gold);
+}
+
+.ts-card--dark .ts-card__chips li {
+	background: rgba(255, 255, 255, .1);
+	border-color: rgba(255, 255, 255, .2);
+	color: #fff;
+}
+
+.ts-card--dark .ts-card__facts,
+.ts-card--dark .ts-card__meta {
+	border-top-color: rgba(255, 255, 255, .16);
+}
+
+.ts-card--dark .ts-card__fact,
+.ts-card--dark .ts-card__meta {
+	color: rgba(255, 255, 255, .72);
+}
+
+.ts-card--dark .ts-card__fact b {
+	color: #fff;
+}
+
+/* ---------- 1.6.0 additions ---------- */
+
+/* Rating bars at the top of the card (e.g. effort level). */
+.ts-card__rating {
+	margin-bottom: 14px;
+	line-height: 0;
+}
+
+/* Bullet points under the text. */
+.ts-card__list {
+	margin: 0 0 20px;
+	padding-left: 18px;
+	font-size: 14.5px;
+	line-height: 1.62;
+}
+
+.ts-card__list li {
+	margin: 0 0 6px;
+}
+
+.ts-card__list li:last-child {
+	margin-bottom: 0;
+}
+
+.ts-card__list:last-child {
+	margin-bottom: 0;
+}
+
+/* Look: plain, with a coloured bar on top (bar colour: per-card Border colour). */
+.ts-cards--topbar .ts-card {
+	padding: 22px 0 0;
+	background: transparent;
+	border: 0;
+	border-top: 4px solid var(--ts-muted-2);
+	border-radius: 0;
+}
+
+/* Icon beside the text: icon column + a body column that keeps the card's own flow. */
+.ts-cards--icon-beside .ts-card:has(> .ts-card__body) {
+	flex-direction: row;
+	align-items: flex-start;
+	column-gap: 16px;
+}
+
+.ts-cards--icon-beside .ts-card:has(> .ts-card__body) > .ts-card__icon {
+	margin-bottom: 0;
+}
+
+.ts-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-self: stretch;
+	min-width: 0;
+}
+
+/* Lines between cards (control: Lines between cards, per device). */
+.ts-cards--divided .ts-card + .ts-card {
+	border-left: var(--ts-cdiv-l, 0px) solid var(--ts-cdiv-c, var(--ts-cdiv-auto, var(--ts-line)));
+	border-top: var(--ts-cdiv-t, 0px) solid var(--ts-cdiv-c, var(--ts-cdiv-auto, var(--ts-line)));
+	border-radius: 0;
+}
+
+/* The first card lines up with the content edge (beats the Card padding control, which uses the element selector). */
+.ts-w.ts-cards--divided .ts-cards__grid > .ts-card:first-child:not(:only-child) {
+	padding-left: 0;
+}
+
+/* Light text: for the whole widget on a dark band, or one card with a dark colour. */
+.ts-cards--light,
+.ts-card--light {
+	--ts-cdiv-auto: rgba(255, 255, 255, .12);
+}
+
+.ts-cards--light .ts-card__title,
+.ts-card--light .ts-card__title {
+	color: #fff;
+}
+
+.ts-cards--light .ts-card__text,
+.ts-cards--light .ts-card__list,
+.ts-card--light .ts-card__text,
+.ts-card--light .ts-card__list {
+	color: rgba(255, 255, 255, .86);
+}
+
+.ts-cards--light .ts-card__kicker,
+.ts-cards--light .ts-card__marker,
+.ts-card--light .ts-card__kicker,
+.ts-card--light .ts-card__marker {
+	color: rgba(255, 255, 255, .85);
+}
+
+.ts-cards--light .ts-card__fact,
+.ts-cards--light .ts-card__meta,
+.ts-card--light .ts-card__fact,
+.ts-card--light .ts-card__meta {
+	color: rgba(255, 255, 255, .72);
+	border-top-color: rgba(255, 255, 255, .16);
+}
+
+.ts-cards--light .ts-card__fact b,
+.ts-card--light .ts-card__fact b {
+	color: #fff;
+}
+
+.ts-cards--light .ts-card__chips li,
+.ts-card--light .ts-card__chips li {
+	background: rgba(255, 255, 255, .1);
+	border-color: rgba(255, 255, 255, .2);
+	color: #fff;
+}
+
+.ts-cards--light .ts-card__facts,
+.ts-card--light .ts-card__facts {
+	border-top-color: rgba(255, 255, 255, .16);
+}
+
+/* Line under the title (1.7.0), for example a phone number. */
+.ts-card__sub {
+	margin-bottom: 8px;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.62;
+	color: var(--ts-esp);
+	overflow-wrap: anywhere;
+}
+
+.ts-card__title + .ts-card__sub {
+	margin-top: -4px;
+}
+
+.ts-card__sub:last-child {
+	margin-bottom: 0;
+}
+
+.ts-cards--light .ts-card__sub,
+.ts-card--light .ts-card__sub,
+.ts-card--dark .ts-card__sub {
+	color: #fff;
+}
+
+/* Whole card clickable (1.7.0): the card's link stretches over the card. */
+.ts-cards--linked .ts-card {
+	position: relative;
+}
+
+.ts-cards--linked .ts-card__link--stretch::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+}
+
+.ts-cards--linked .ts-card:focus-within {
+	outline: 3px solid rgba(243, 105, 42, .4);
+	outline-offset: 2px;
+}
+
+.ts-cards--linked .ts-card__link--stretch:focus {
+	outline: none;
+}
+
+.ts-cards--hover-lift .ts-card {
+	transition: transform .2s, box-shadow .2s;
+}
+
+/* 1.9.0: only cards that have a link lift (a card without one must not look clickable). */
+.ts-cards--hover-lift .ts-card:has(.ts-card__link--stretch):hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 24px rgba(56, 37, 32, .08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-cards--hover-lift .ts-card:has(.ts-card__link--stretch):hover {
+		transform: none;
+	}
+}
+
+/* ---------- 1.8.0 additions ---------- */
+
+/* Icon beside the text: up / down position (control: Icon beside the text - up / down). */
+.ts-cards--icon-beside .ts-card:has(> .ts-card__body) {
+	align-items: var(--ts-card-iv, flex-start);
+}
+
+.ts-cards--icon-beside .ts-card__body {
+	justify-content: var(--ts-card-iv, flex-start);
+}
+
+/* Live clock in place of a title: digits keep the same width as the time changes. */
+.ts-clock {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Bullet look: tick or cross (per card). */
+.ts-card__list--mark {
+	padding-left: 0;
+	list-style: none;
+}
+
+.ts-card__list--mark li {
+	position: relative;
+	padding-left: 26px;
+}
+
+.ts-card__list--mark li::before {
+	position: absolute;
+	top: 0;
+	left: 2px;
+	font-weight: 900;
+}
+
+.ts-card__list--tick li::before {
+	content: '\2713';
+	color: var(--ts-oasis-d);
+}
+
+.ts-card__list--cross li::before {
+	content: '\2715';
+	color: var(--ts-terra-d);
+}
+
+/* 1.9.2: bullet look "Small dot, no indent" (drafts' .tw-list: 6px dot, 10px gap). */
+.ts-card__list--small {
+	padding-left: 0;
+	list-style: none;
+}
+
+.ts-card__list--small li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.ts-card__list--small li::before {
+	content: '';
+	flex: none;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: .7;
+}
+
+/* Thin lines between bullet points (control: Thin lines between bullet points). */
+.ts-cards--bullet-lines .ts-card__list li {
+	margin: 0;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-top: 1px solid rgba(56, 37, 32, .08);
+}
+
+.ts-cards--bullet-lines .ts-card__list li:first-child {
+	border-top: 0;
+}
+
+.ts-cards--bullet-lines .ts-card__list--mark li::before {
+	top: 7px;
+}
+
+.ts-cards--light.ts-cards--bullet-lines .ts-card__list li,
+.ts-cards--bullet-lines .ts-card--light .ts-card__list li,
+.ts-cards--bullet-lines .ts-card--dark .ts-card__list li {
+	border-top-color: rgba(255, 255, 255, .14);
+}
+
+/* Icon beside a card that has only a title (a heading with an icon): no space under the title. */
+.ts-cards--icon-beside .ts-card__body > .ts-card__title:last-child {
+	margin-bottom: 0;
+}
+
+/* ---------- 1.10.0 (Destinations page): stops list, bottom note with links ---------- */
+.ts-card__stops {
+	position: relative;
+	margin: 20px 0 0;
+	padding: 0 0 0 4px;
+	list-style: none;
+}
+
+.ts-w .ts-card__stops li {
+	position: relative;
+	margin: 0;
+	padding: 0 0 12px 26px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.62;
+}
+
+.ts-card__stops li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 6px;
+	width: 12px;
+	height: 12px;
+	border: 3px solid var(--ts-terra);
+	border-radius: 50%;
+	background: #fff;
+}
+
+.ts-card__stops li::after {
+	content: "";
+	position: absolute;
+	left: 5px;
+	top: 20px;
+	bottom: -2px;
+	border-left: 2px dashed rgba(243, 105, 42, .45);
+}
+
+.ts-card__stops li:last-child::after {
+	display: none;
+}
+
+.ts-card__stops li.is-air::before {
+	border-color: var(--ts-tq);
+}
+
+.ts-card__stops li small {
+	display: block;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ts-muted-2);
+}
+
+.ts-card--dark .ts-card__stops li {
+	color: #fff;
+}
+
+.ts-card--dark .ts-card__stops li::before {
+	background: var(--ts-esp);
+}
+
+.ts-card--dark .ts-card__stops li small {
+	color: rgba(255, 255, 255, .55);
+}
+
+.ts-w .ts-card__meta--rich p {
+	margin: 0;
+}
+
+.ts-w .ts-card__meta--rich a {
+	border-bottom: 1.5px solid currentColor;
+	font-weight: 700;
+	color: inherit;
+	text-decoration: none;
+}

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 110 L90 60 L190 120 L300 50 L460 110 V340 H0 Z" fill="#5E3C35" opacity=".7"/>
+      <path d="M60 190 Q 150 184 240 196 L240 206 Q 150 196 60 202 Z" fill="#38A833"/>
+      <path d="M40 226 Q 160 216 280 232 L280 242 Q 160 228 40 238 Z" fill="#4EA92D"/>
+      <path d="M20 264 Q 170 252 320 270 L320 280 Q 170 264 20 276 Z" fill="#38A833"/>
+      <path d="M60 170 C 130 150 170 190 240 170 S 340 140 400 160" fill="none" stroke="#FFC300" stroke-width="4" stroke-dasharray="1 10" stroke-linecap="round"/>
+      <g fill="#FFFCF6"><circle cx="60" cy="170" r="7"/><circle cx="240" cy="170" r="7"/><circle cx="400" cy="160" r="7"/></g>
+      <g font-family="Karla, Arial, Helvetica, sans-serif" font-weight="700" font-size="12" fill="#FFFCF6" text-anchor="middle">
+        <text x="60" y="152">Al Ayn</text><text x="240" y="152">Al Aqr</text><text x="400" y="142">Ash Sharijah</text>
+      </g>
+      <g fill="#F3692A"><circle cx="120" cy="222" r="3.5"/><circle cx="200" cy="260" r="3.5"/><circle cx="160" cy="194" r="3.5"/></g>
+</svg>

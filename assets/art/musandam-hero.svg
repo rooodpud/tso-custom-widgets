@@ -1,0 +1,28 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mzSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5DC3E6"/><stop offset="100%" stop-color="#B7E7E4"/>
+          </linearGradient>
+          <linearGradient id="mzCliff1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#807A67"/><stop offset="100%" stop-color="#4A3128"/>
+          </linearGradient>
+          <linearGradient id="mzCliff2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6E6B7A"/><stop offset="100%" stop-color="#382520"/>
+          </linearGradient>
+          <linearGradient id="mzSea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0392CC"/><stop offset="100%" stop-color="#0A4E70"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="480" fill="url(#mzSky)"/>
+        <circle cx="1010" cy="90" r="44" fill="#FFC300" opacity=".95"/>
+        <path d="M0 120 L160 260 L340 90 L520 250 L700 60 L900 240 L1080 130 L1200 220 V300 H0 Z" fill="url(#mzCliff2)" opacity=".9"/>
+        <path d="M0 210 L220 320 L420 200 L640 320 L860 190 L1060 300 L1200 260 V340 H0 Z" fill="url(#mzCliff1)"/>
+        <path d="M0 330 Q 300 300 600 335 T 1200 320 V480 H0 Z" fill="url(#mzSea)"/>
+        <!-- dhow -->
+        <g transform="translate(560,370)">
+          <path d="M0 40 Q 60 55 130 40 L118 55 Q 62 66 12 55 Z" fill="#382520"/>
+          <line x1="60" y1="40" x2="60" y2="0" stroke="#382520" stroke-width="3"/>
+          <path d="M60 4 L100 34 L60 34 Z" fill="#F3692A"/>
+        </g>
+        <ellipse cx="640" cy="420" rx="220" ry="8" fill="#072F42" opacity=".3"/>
+      </svg>

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="duneNight" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#382520"/><stop offset="100%" stop-color="#1F140F"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="320" fill="url(#duneNight)"/>
+    <circle cx="1080" cy="60" r="26" fill="#FBF6EE" opacity=".9"/>
+    <path d="M0 180 Q 200 120 420 175 T 820 150 T 1200 165 V320 H0 Z" fill="#5E3C35" opacity=".8"/>
+    <path d="M0 230 Q 260 190 540 225 T 960 205 T 1200 215 V320 H0 Z" fill="#472D1E"/>
+  </svg>

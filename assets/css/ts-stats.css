@@ -1,0 +1,153 @@
+/* TS Stats (also used inside TS Split Feature) */
+.ts-stats {
+	--ts-stat-gap: 28px;
+	--ts-stat-line-w: 1px;
+	--ts-stat-line: rgba(56, 37, 32, .14);
+}
+
+.ts-stats__list {
+	/* Arrangement (control) switches these between a row and a column. */
+	--ts-stat-bl: var(--ts-stat-line-w);
+	--ts-stat-bt: 0px;
+	--ts-stat-pl: var(--ts-stat-gap);
+	--ts-stat-pt: 0px;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--ts-stat-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-stat {
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	margin: 0;
+}
+
+/*
+ * The line sits between two figures: gap | line | same space | next figure.
+ * Every figure carries the line on its leading edge and the list is pulled back by that
+ * amount, so the line in front of the first figure of each wrapped line is clipped away.
+ */
+.ts-stats--dividers {
+	overflow: hidden;
+}
+
+.ts-stats--dividers .ts-stats__list {
+	margin-top: calc(-1 * (var(--ts-stat-bt) + var(--ts-stat-pt)));
+	margin-left: calc(-1 * (var(--ts-stat-bl) + var(--ts-stat-pl)));
+}
+
+.ts-stats--dividers .ts-stat {
+	padding-top: var(--ts-stat-pt);
+	padding-left: var(--ts-stat-pl);
+	border: 0 solid var(--ts-stat-line);
+	border-top-width: var(--ts-stat-bt);
+	border-left-width: var(--ts-stat-bl);
+}
+
+/* Centred figures cannot use the clipping trick: only the very first figure drops its line. */
+.ts-stats--dividers.ts-stats--center .ts-stats__list {
+	margin: 0;
+}
+
+.ts-stats--dividers.ts-stats--center .ts-stat:first-child {
+	padding: 0;
+	border-width: 0;
+}
+
+.ts-stat__value {
+	--ts-fs: 25px;
+	--ts-lh: 1.25;
+	display: block;
+	font-family: var(--ts-font-head);
+	font-size: var(--ts-fs);
+	font-weight: 700;
+	line-height: var(--ts-lh);
+	color: var(--ts-esp);
+}
+
+.ts-stat__label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.62;
+	color: var(--ts-muted);
+}
+
+/* Light text for dark backgrounds */
+.ts-stats--light {
+	--ts-stat-line: rgba(255, 255, 255, .16);
+}
+
+.ts-stats--light .ts-stat__value {
+	color: #fff;
+}
+
+.ts-stats--light .ts-stat__label {
+	color: rgba(255, 255, 255, .6);
+}
+
+/* 1.9.8: picture behind the figures. Layers, bottom to top:
+ *   picture (.ts-stats__bg, z-index 0) → overlay (::before, z-index 1) → figures (.ts-stats__body, z-index 2).
+ * The overlay exists only when its Background Type is chosen (the control sets --ts-stats-overlay: ''),
+ * as on TS Panel 1.9.5. The box grows with the figures, so nothing spills out on phones. */
+.ts-stats--layered {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 40px 24px;
+	overflow: hidden;
+}
+
+.ts-stats--layered::before {
+	content: var(--ts-stats-overlay, none);
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+	opacity: var(--ts-stats-ov-opacity, .5);
+	mix-blend-mode: var(--ts-stats-ov-blend, normal);
+	pointer-events: none;
+	transition: background .3s, opacity .3s, filter .3s;
+}
+
+.ts-stats__bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	border-radius: inherit;
+	pointer-events: none;
+}
+
+/* Elementor's ".elementor img { height: auto; max-width: 100% }" would leave the picture short. */
+.ts-w .ts-stats__bg-img {
+	display: block;
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	border-radius: 0;
+	transition: opacity .3s, filter .3s;
+}
+
+/* Drawings made to stretch (preserveAspectRatio="none") fill the box, as in TS Art. */
+.ts-w .ts-stats__bg-img--stretch {
+	object-fit: fill;
+}
+
+/* The figures: always the top layer. The dividers' leading line is clipped here, inside the padding. */
+.ts-stats__body {
+	position: relative;
+	z-index: 2;
+	overflow: hidden;
+}

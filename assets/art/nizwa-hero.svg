@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nzSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FEC996"/><stop offset="100%" stop-color="#F7B06B"/>
+          </linearGradient>
+          <linearGradient id="nzMtn" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6E6B7A"/><stop offset="100%" stop-color="#472D1E"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="480" fill="url(#nzSky)"/>
+        <circle cx="1030" cy="90" r="46" fill="#FFC300" opacity=".9"/>
+        <path d="M0 260 L130 130 L250 270 L370 100 L520 270 L680 140 L820 270 L960 170 L1100 270 L1200 210 L1200 300 L0 300 Z" fill="url(#nzMtn)" opacity=".92"/>
+        <path d="M0 300 Q 200 270 420 300 T 840 292 T 1200 296 V480 H0 Z" fill="#B6712A"/>
+        <path d="M0 340 Q 220 320 460 340 T 900 332 T 1200 336 V480 H0 Z" fill="#8C4210"/>
+        <!-- fort -->
+        <g transform="translate(500,250)">
+          <rect x="0" y="70" width="200" height="70" fill="#5E3C35"/>
+          <rect x="-6" y="60" width="20" height="86" fill="#5E3C35"/>
+          <rect x="186" y="60" width="20" height="86" fill="#5E3C35"/>
+          <circle cx="100" cy="60" r="46" fill="#503B2C"/>
+          <circle cx="100" cy="60" r="46" fill="none" stroke="#382520" stroke-width="3" opacity=".4"/>
+          <rect x="-2" y="50" width="16" height="16" fill="#382520"/>
+          <rect x="20" y="50" width="16" height="16" fill="#382520"/>
+          <rect x="164" y="50" width="16" height="16" fill="#382520"/>
+          <rect x="192" y="50" width="16" height="16" fill="#382520"/>
+        </g>
+        <!-- palms -->
+        <g transform="translate(120,300)">
+          <ellipse cx="18" cy="70" rx="8" ry="34" fill="#2C8828"/>
+          <path d="M18 42 C -8 34 -18 16 -20 0 C 4 8 16 22 18 42 Z" fill="#38A833"/>
+          <path d="M18 42 C 44 30 52 12 52 -2 C 30 6 22 22 18 42 Z" fill="#4EA92D"/>
+        </g>
+        <g transform="translate(880,310)">
+          <ellipse cx="14" cy="60" rx="7" ry="28" fill="#2C8828"/>
+          <path d="M14 34 C -6 28 -14 12 -16 0 C 4 6 13 18 14 34 Z" fill="#38A833"/>
+          <path d="M14 34 C 36 24 42 10 42 -2 C 24 4 18 18 14 34 Z" fill="#4EA92D"/>
+        </g>
+      </svg>

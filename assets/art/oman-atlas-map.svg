@@ -1,0 +1,45 @@
+<svg viewBox="0 0 520 700" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dunes" width="14" height="8" patternUnits="userSpaceOnUse">
+              <path d="M0 6 Q3.5 2 7 6 T14 6" fill="none" stroke="#E9A06F" stroke-width="1.2" opacity=".7"/>
+            </pattern>
+          </defs>
+          <rect width="520" height="700" fill="#E7F1F4"/>
+          <!-- neighbouring countries -->
+          <path d="M106.5,646.2 L20.0,686.5 L-14.6,748.5 L-129.9,748.5 L-129.9,-57.5 L-14.6,-57.5 L20.0,181.2 L100.7,171.9 L175.7,165.7 L216.0,134.7 L242.0,106.8 L267.9,82.0 L276.6,69.6 L280.6,83.9 L289.3,90.1 L295.0,109.9 L295.0,129.7 L276.6,153.3 L262.2,175.0 L250.6,196.7 L239.1,233.9 L227.6,271.1 L43.1,500.5 L89.2,605.9 Z" fill="#EDE5D9"/>
+          <path d="M273.7,-57.5 L273.7,-1.7 L291.0,7.6 L325.6,-1.7 L348.7,20.0 L360.2,72.7 L417.9,91.3 L562.0,103.7 L562.0,-57.5 Z" fill="#EDE5D9"/>
+          <!-- Oman mainland -->
+          <path d="M295.0,129.7 L301.4,147.1 L308.3,159.5 L325.6,178.1 L360.2,199.8 L397.7,210.3 L415.0,214.1 L423.6,215.3 L435.2,227.7 L452.5,252.5 L469.7,268.0 L494.0,280.4 L492.8,295.9 L487.0,320.7 L472.6,345.5 L446.7,376.5 L438.0,395.1 L423.6,410.6 L391.9,426.1 L377.5,450.9 L370.6,475.7 L377.5,503.6 L357.3,519.1 L319.8,543.9 L302.5,562.5 L291.0,571.8 L250.6,593.5 L233.3,609.0 L207.4,624.5 L164.2,624.5 L135.3,630.7 L106.5,646.2 L89.2,605.9 L43.1,500.5 L227.6,271.1 L239.1,233.9 L250.6,196.7 L262.2,175.0 L276.6,153.3 Z" fill="#F7E7CF" stroke="#D9B98F" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Musandam -->
+          <path d="M295.6,42.9 L301.4,51.0 L297.9,63.4 L296.8,75.8 L289.3,90.1 L280.6,83.9 L276.6,69.6 L280.6,60.3 L285.2,51.0 Z" fill="#F7E7CF" stroke="#D9B98F" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Hajar mountains (texture) -->
+          <path d="M300,170 Q330,195 360,215 Q390,228 420,232 Q440,240 455,262" fill="none" stroke="#C9A27A" stroke-width="16" stroke-linecap="round" opacity=".35"/>
+          <path d="M318 196 l7 -10 l7 10 M338 206 l8 -12 l8 12 M380 222 l7 -10 l7 10 M402 228 l6 -9 l6 9" fill="none" stroke="#9C7356" stroke-width="1.6" stroke-linejoin="round"/>
+          <!-- Wahiba dunes -->
+          <ellipse cx="438" cy="322" rx="30" ry="34" fill="url(#dunes)"/>
+          <!-- Dhofar green hills -->
+          <path d="M120 612 Q170 590 225 598 Q250 600 262 590" fill="none" stroke="#38A833" stroke-width="12" stroke-linecap="round" opacity=".28"/>
+
+          <!-- sea + country labels -->
+          <g font-family="Karla, sans-serif" font-weight="700" font-size="12" letter-spacing="1.5">
+            <text x="400" y="150" fill="#0D76AB" opacity=".75">GULF OF OMAN</text>
+            <text x="360" y="640" fill="#0D76AB" opacity=".75">ARABIAN SEA</text>
+            <text x="150" y="60" fill="#0D76AB" opacity=".6" font-size="11">ARABIAN GULF</text>
+            <text x="175" y="140" fill="#9A8A7E">UAE</text>
+            <text x="40" y="330" fill="#9A8A7E">SAUDI ARABIA</text>
+            <text x="30" y="672" fill="#9A8A7E">YEMEN</text>
+            <text x="440" y="50" fill="#9A8A7E">IRAN</text>
+            <text x="200" y="420" fill="#B48C68" font-size="13" letter-spacing="4">OMAN</text>
+          </g>
+
+          <!-- classic loop (road) -->
+          <path d="M420.7,215.9 L346.4,237.6 L369.4,248.2 L361.9,256.8 L432.3,317.6 L470,282 L420.7,215.9" fill="none" stroke="#F3692A" stroke-width="2.5" stroke-dasharray="6 6" stroke-linejoin="round" opacity=".85"/>
+          <!-- flights -->
+          <path d="M420.7,215.9 Q380,120 300,58" fill="none" stroke="#0D76AB" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+          <path d="M420.7,215.9 Q330,420 168,610" fill="none" stroke="#0D76AB" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+          <g font-family="Karla, sans-serif" font-weight="700" font-size="11.5" fill="#0D76AB">
+            <text x="366" y="118">✈ ~1 hr</text>
+            <text x="296" y="460">✈ ~1 hr 40</text>
+          </g>
+
+          </svg>

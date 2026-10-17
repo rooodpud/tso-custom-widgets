@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="adSky" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#CDEFEF"/><stop offset="100%" stop-color="#FEC996"/></linearGradient>
+        <linearGradient id="adMtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#807A67"/><stop offset="100%" stop-color="#472D1E"/></linearGradient>
+        <linearGradient id="adDune" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7B06B"/><stop offset="100%" stop-color="#AF4B1A"/></linearGradient>
+      </defs>
+      <rect width="1200" height="460" fill="url(#adSky)"/>
+      <!-- hot air balloon -->
+      <g transform="translate(960,70)">
+        <path d="M0 0 C -46 0 -58 44 -38 78 L -14 108 L 14 108 L 38 78 C 58 44 46 0 0 0 Z" fill="#F3692A"/>
+        <path d="M0 0 C -16 0 -20 50 -8 108 L 8 108 C 20 50 16 0 0 0 Z" fill="#FFC300"/>
+        <line x1="-12" y1="108" x2="-8" y2="126" stroke="#382520" stroke-width="2"/><line x1="12" y1="108" x2="8" y2="126" stroke="#382520" stroke-width="2"/>
+        <rect x="-10" y="126" width="20" height="14" rx="2" fill="#5E3C35"/>
+      </g>
+      <!-- mountains (left) -->
+      <path d="M0 330 L0 200 L120 110 L220 190 L330 90 L450 210 L540 170 L620 260 L620 460 H0 Z" fill="url(#adMtn)"/>
+      <!-- canyon slot with water -->
+      <path d="M230 460 L270 300 L300 300 L330 460 Z" fill="#241611"/>
+      <path d="M262 460 Q 282 430 300 460 Z" fill="#0392CC"/>
+      <!-- hiker on ridge -->
+      <g transform="translate(330,78)"><circle cx="0" cy="0" r="6" fill="#382520"/><rect x="-4" y="6" width="8" height="18" rx="3" fill="#382520"/><rect x="3" y="8" width="9" height="12" rx="2" fill="#F3692A"/><line x1="-8" y1="8" x2="-14" y2="30" stroke="#382520" stroke-width="2.5"/></g>
+      <!-- dunes (right) -->
+      <path d="M560 460 L560 330 Q 700 270 840 320 T 1200 300 V460 Z" fill="url(#adDune)"/>
+      <path d="M560 460 L560 390 Q 760 350 930 386 T 1200 372 V460 Z" fill="#8C4210"/>
+      <!-- quad bike -->
+      <g transform="translate(760,330)">
+        <rect x="0" y="10" width="54" height="16" rx="5" fill="#382520"/>
+        <rect x="16" y="0" width="22" height="12" rx="3" fill="#F3692A"/>
+        <circle cx="8" cy="30" r="11" fill="#241611"/><circle cx="48" cy="30" r="11" fill="#241611"/>
+        <circle cx="27" cy="-10" r="6" fill="#382520"/>
+      </g>
+      <path d="M680 372 Q 720 360 758 352" stroke="#FEC996" stroke-width="3" fill="none" stroke-dasharray="3 7" opacity=".8"/>
+      <!-- camel -->
+      <g transform="translate(1030,318)">
+        <path d="M0 50 C 4 30 14 20 28 20 C 38 20 42 12 40 4 C 38 -1 44 -4 48 0 C 52 4 50 10 47 14 C 55 18 60 30 62 50 Z" fill="#5E3C35"/>
+        <path d="M-4 50 h70 v5 h-70 z" fill="#382520"/>
+      </g>
+</svg>

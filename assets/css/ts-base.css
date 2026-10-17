@@ -1,0 +1,394 @@
+/*
+ * Travel Store widgets — shared base (DEC-015 / DEC-016).
+ * Colours and fonts read the Travel Store Global Colors/Fonts from Elementor Site
+ * Settings; every var() falls back to the design-draft value so a widget still
+ * renders correctly where the kit has not been updated.
+ * Selectors are kept at low specificity so editor controls always win.
+ */
+
+.ts-w {
+	--ts-sand: var(--e-global-color-ts_sand, #FBF6EE);
+	--ts-cream: var(--e-global-color-ts_cream, #FFFCF6);
+	--ts-terra: var(--e-global-color-ts_terracotta, #F3692A);
+	--ts-terra-d: var(--e-global-color-ts_terracotta_dark, #D6521A);
+	--ts-esp: var(--e-global-color-ts_espresso, #382520);
+	--ts-gold: var(--e-global-color-ts_gold, #FFC300);
+	--ts-tq: var(--e-global-color-ts_turquoise, #0392CC);
+	--ts-tq-d: var(--e-global-color-ts_turquoise_deep, #0D76AB);
+	--ts-oasis: var(--e-global-color-ts_oasis, #38A833);
+	--ts-oasis-d: var(--e-global-color-ts_oasis_deep, #2C8828);
+	--ts-line: rgba(56, 37, 32, .12);
+	--ts-muted: rgba(56, 37, 32, .68);
+	--ts-muted-2: rgba(56, 37, 32, .5);
+	--ts-font-body: var(--e-global-typography-ts_body-font-family, 'Karla'), sans-serif;
+	--ts-font-head: var(--e-global-typography-ts_heading-font-family, 'Bricolage Grotesque'), sans-serif;
+
+	box-sizing: border-box;
+	color: var(--ts-esp);
+	font-family: var(--ts-font-body);
+	font-size: 17px;
+	line-height: 1.62;
+}
+
+.ts-w *,
+.ts-w *::before,
+.ts-w *::after {
+	box-sizing: border-box;
+}
+
+/* Resets use :where() (zero specificity) so each widget's own spacing wins. */
+.ts-w :where(p) {
+	margin: 0;
+}
+
+.ts-w :where(h1, h2, h3, h4, h5, h6) {
+	margin: 0;
+	padding: 0;
+}
+
+.ts-w h1,
+.ts-w h2,
+.ts-w h3,
+.ts-w h4,
+.ts-w h5,
+.ts-w h6 {
+	font-family: var(--ts-font-head);
+	font-weight: 700;
+	letter-spacing: -.015em;
+	color: var(--ts-esp);
+}
+
+/*
+ * Text sizes with Global Font defaults (ISSUE-011).
+ * A text element whose Typography control starts linked to a Travel Store Global Font gets
+ * Elementor's rule font-size/line-height: var(--e-global-typography-<id>-font-size|line-height).
+ * The Global Fonts set only family and weight, so those variables would be undefined and the
+ * text would drop to the inherited size. Each element sets its preset as --ts-fs / --ts-lh and
+ * publishes it under those names. A size chosen in the widget's own Typography control still wins.
+ */
+:where(.ts-sh__title, .ts-sh__desc, .ts-card__title, .ts-card__text, .ts-mcard__title, .ts-mcard__text, .ts-info__title, .ts-info__desc, .ts-faq__q, .ts-faq__a, .ts-panel__title, .ts-panel__text, .ts-stat__value, .ts-step__title, .ts-step__text, .ts-split__title, .ts-split__text, .ts-tabs__title, .ts-tabs__text, .ts-testi__score, .ts-testi__quote, .tsr-intro__title, .tsr-intro__text, .tsr-place, .tsr-desc, .ts-enq__title, .ts-enq__intro, .ts-enq__success-title, .ts-enq__success-text) {
+	--e-global-typography-ts_heading-font-size: var(--ts-fs);
+	--e-global-typography-ts_heading-line-height: var(--ts-lh);
+	--e-global-typography-ts_body-font-size: var(--ts-fs);
+	--e-global-typography-ts_body-line-height: var(--ts-lh);
+}
+
+/* ---------- Tones: chips and icon tiles (all palette-based) ---------- */
+.ts-tone--gold {
+	--ts-tone-fg: #8a6d00;
+	--ts-tone-dot: var(--ts-gold);
+	--ts-tone-bg: rgba(255, 195, 0, .16);
+	--ts-tone-tile: rgba(255, 195, 0, .2);
+	--ts-tone-icon: #8a6d00;
+}
+
+.ts-tone--terracotta {
+	--ts-tone-fg: var(--ts-terra-d);
+	--ts-tone-dot: var(--ts-terra);
+	--ts-tone-bg: rgba(243, 105, 42, .1);
+	--ts-tone-tile: rgba(243, 105, 42, .15);
+	--ts-tone-icon: var(--ts-terra);
+}
+
+.ts-tone--oasis {
+	--ts-tone-fg: var(--ts-oasis-d);
+	--ts-tone-dot: var(--ts-oasis);
+	--ts-tone-bg: rgba(56, 168, 51, .12);
+	--ts-tone-tile: rgba(56, 168, 51, .16);
+	--ts-tone-icon: var(--ts-oasis);
+}
+
+.ts-tone--turquoise {
+	--ts-tone-fg: var(--ts-tq-d);
+	--ts-tone-dot: var(--ts-tq);
+	--ts-tone-bg: rgba(3, 146, 204, .1);
+	--ts-tone-tile: rgba(3, 146, 204, .15);
+	--ts-tone-icon: var(--ts-tq);
+}
+
+.ts-tone--espresso {
+	--ts-tone-fg: var(--ts-esp);
+	--ts-tone-dot: var(--ts-esp);
+	--ts-tone-bg: rgba(56, 37, 32, .08);
+	--ts-tone-tile: rgba(56, 37, 32, .1);
+	--ts-tone-icon: var(--ts-esp);
+}
+
+/* White: for coloured bands (Muscat "from the sea"); same on light and dark backgrounds. */
+.ts-tone--white,
+.ts-on-dark .ts-tone--white {
+	--ts-tone-fg: #fff;
+	--ts-tone-dot: var(--ts-gold);
+	--ts-tone-bg: rgba(255, 255, 255, .14);
+	--ts-tone-tile: rgba(255, 255, 255, .14);
+	--ts-tone-icon: #fff;
+}
+
+.ts-tone--none {
+	--ts-tone-tile: transparent;
+	--ts-tone-icon: var(--ts-esp);
+}
+
+/* On dark backgrounds chips switch to light-on-dark. */
+.ts-on-dark .ts-tone--gold {
+	--ts-tone-fg: var(--ts-gold);
+	--ts-tone-bg: rgba(255, 195, 0, .14);
+}
+
+.ts-on-dark .ts-tone--terracotta,
+.ts-on-dark .ts-tone--espresso {
+	--ts-tone-fg: #fff;
+	--ts-tone-bg: rgba(255, 255, 255, .12);
+}
+
+/* 1.9.2: green and blue keep their colour on dark bands, as in the drafts (light tint text on a tinted chip). */
+.ts-on-dark .ts-tone--oasis {
+	--ts-tone-fg: #8FE07A;
+	--ts-tone-bg: rgba(56, 168, 51, .16);
+}
+
+.ts-on-dark .ts-tone--turquoise {
+	--ts-tone-fg: #8CDBDA;
+	--ts-tone-bg: rgba(3, 146, 204, .2);
+}
+
+/* ---------- Eyebrow chip ---------- */
+.ts-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 15px;
+	border-radius: 100px;
+	background: var(--ts-tone-bg);
+	color: var(--ts-tone-fg);
+	font-family: var(--ts-font-body);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.2: the drafts' line height (was 1, chips came out 8px lower). */
+	max-width: 100%;
+}
+
+.ts-chip__dot {
+	flex: none;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--ts-tone-dot);
+}
+
+/* Label look "line": a short rule before capitals, no pill (Coastal depth bands). */
+.ts-chip.ts-chip--line {
+	gap: 10px;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	font-family: var(--ts-font-head);
+	font-weight: 800;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+.ts-chip--line::before {
+	content: '';
+	flex: none;
+	width: 26px;
+	height: 2px;
+	background: currentColor;
+	opacity: .7;
+}
+
+.ts-chip--line .ts-chip__dot {
+	display: none;
+}
+
+/* ---------- Rating bars (e.g. effort 2 of 3) ---------- */
+.ts-rating {
+	display: inline-flex;
+	gap: 4px;
+	vertical-align: middle;
+}
+
+.ts-rating i {
+	display: inline-block;
+	width: var(--ts-rating-w, 14px);
+	height: var(--ts-rating-h, 6px);
+	border-radius: 4px;
+	background: var(--ts-rating-off, rgba(56, 37, 32, .15));
+}
+
+.ts-rating i.is-on {
+	background: var(--ts-rating-on, var(--ts-terra));
+}
+
+.ts-on-dark .ts-rating i:not(.is-on) {
+	background: var(--ts-rating-off, rgba(255, 255, 255, .2));
+}
+
+/* ---------- Buttons (one shared system) ---------- */
+.ts-w .ts-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px 28px;
+	border: 2px solid transparent;
+	border-radius: 100px;
+	font-family: var(--ts-font-body);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.2: the drafts' line height (was 1.2). */
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: none;
+}
+
+.ts-w .ts-btn:hover,
+.ts-w .ts-btn:focus {
+	text-decoration: none;
+}
+
+/* Pages on the default page template put the content in Astra's .entry-content, where Astra underlines
+   every link (.ast-single-post .entry-content a). One element more in the selector keeps buttons plain there. */
+body .ts-w a.ts-btn,
+body .ts-w a.ts-btn:hover,
+body .ts-w a.ts-btn:focus {
+	text-decoration: none;
+}
+
+/* 1.9.4: filled buttons have no border in the drafts (only the outline button does), so they are 4px lower. */
+.ts-w .ts-btn:not(.ts-btn--secondary) {
+	border-width: 0;
+}
+
+.ts-w .ts-btn:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-w .ts-btn--primary,
+.ts-w .ts-btn--primary:hover,
+.ts-w .ts-btn--primary:focus {
+	background: var(--ts-terra);
+	color: #fff;
+	box-shadow: 0 10px 22px rgba(243, 105, 42, .3);
+}
+
+.ts-w .ts-btn--secondary,
+.ts-w .ts-btn--secondary:hover,
+.ts-w .ts-btn--secondary:focus {
+	background: transparent;
+	color: var(--ts-esp);
+	border-color: rgba(56, 37, 32, .16);
+	padding-left: 26px;
+	padding-right: 26px;
+}
+
+.ts-w .ts-btn--dark,
+.ts-w .ts-btn--dark:hover,
+.ts-w .ts-btn--dark:focus {
+	background: var(--ts-esp);
+	color: #fff;
+	font-size: 15px;
+	padding: 15px 26px;
+}
+
+.ts-w .ts-btn--light,
+.ts-w .ts-btn--light:hover,
+.ts-w .ts-btn--light:focus {
+	background: #fff;
+	color: var(--ts-terra-d);
+}
+
+/* Gold: for dark panels (Muscat CTA .btn-gold). */
+.ts-w .ts-btn--gold,
+.ts-w .ts-btn--gold:hover,
+.ts-w .ts-btn--gold:focus {
+	background: var(--ts-gold);
+	color: var(--ts-esp);
+	font-size: 15px;
+	padding: 15px 26px;
+}
+
+/* Cream: for coloured panels (golf CTA .btn-cream). */
+.ts-w .ts-btn--cream,
+.ts-w .ts-btn--cream:hover,
+.ts-w .ts-btn--cream:focus {
+	background: var(--ts-cream);
+	color: var(--ts-esp);
+	font-size: 15px;
+	padding: 15px 26px;
+}
+
+/* ---------- Editor-only empty state ---------- */
+.ts-empty {
+	padding: 28px;
+	border: 2px dashed rgba(56, 37, 32, .25);
+	border-radius: 12px;
+	text-align: center;
+	font-size: 14px;
+	color: rgba(56, 37, 32, .7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-w * {
+		scroll-behavior: auto;
+	}
+}
+
+/* Elementor's Image options on TS pictures (1.6.3): the picture's own Link and its Caption. */
+.ts-pic__link {
+	display: block;
+}
+
+.ts-pic__caption {
+	margin-top: 8px;
+	font-size: 13.5px;
+	line-height: 1.5;
+	color: var(--ts-muted);
+}
+
+/* ---------- Links to other websites (1.8.0): arrow after the link text ---------- */
+.ts-w a.ts-ext::after {
+	content: '\2197\FE0E';
+	display: inline-block;
+	margin-left: .25em;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+/* Read out by screen readers, not shown. */
+.ts-sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Label look "rule" (1.10.0): small capitals, then a thin line running to the edge (Destinations region labels). */
+.ts-chip.ts-chip--rule {
+	display: flex;
+	width: 100%;
+	gap: 14px;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	color: var(--ts-muted-2);
+	font-family: var(--ts-font-head);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+.ts-chip--rule::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background: var(--ts-line);
+}
+
+.ts-chip--rule .ts-chip__dot {
+	display: none;
+}

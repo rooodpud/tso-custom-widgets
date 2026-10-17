@@ -1,0 +1,388 @@
+/* TS Enquiry Form (1.7.0). Two columns become one when the form itself is narrow (container query),
+   so it works in a wide section or a side column alike. */
+.ts-enq {
+	--ts-enq-accent: var(--ts-terra);
+	--ts-enq-error: #C0392B;
+	container-type: inline-size;
+	padding: 40px;
+	border: 1px solid var(--ts-line);
+	border-radius: 28px;
+	background: var(--ts-sand);
+}
+
+.ts-enq [hidden] {
+	display: none !important;
+}
+
+.ts-enq__title {
+	--ts-fs: clamp(1.6rem, 2.8vw, 2rem);
+	--ts-lh: 1.2;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-enq__intro {
+	--ts-fs: 15.5px;
+	--ts-lh: 1.6;
+	margin-top: 8px;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+.ts-enq__req {
+	color: var(--ts-terra-d);
+}
+
+.ts-enq__form {
+	margin: 0;
+}
+
+/* Spam trap: out of sight, never filled by people. */
+.ts-enq__hp {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.ts-enq__fs {
+	min-width: 0;
+	margin: 30px 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.ts-enq__label {
+	display: block;
+	margin-bottom: 10px;
+	padding: 0;
+	font-size: 14.5px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: var(--ts-esp);
+}
+
+.ts-enq__opt {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ts-muted-2);
+}
+
+/* Enquiry types: choice cards */
+.ts-enq__types {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.ts-enq__type {
+	position: relative;
+}
+
+.ts-enq__type input,
+.ts-enq__pill input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.ts-enq__type-label {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	height: 100%;
+	padding: 14px 16px;
+	border: 2px solid var(--ts-line);
+	border-radius: 14px;
+	background: var(--ts-cream);
+	cursor: pointer;
+	transition: border-color .15s, background-color .15s;
+}
+
+.ts-enq__type-title {
+	display: block;
+	font-size: 15px;
+	line-height: 1.4;
+}
+
+.ts-enq__type-text {
+	display: block;
+	font-size: 13px;
+	line-height: 1.45;
+	color: var(--ts-muted);
+}
+
+.ts-enq__tick {
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+	border: 2px solid rgba(56, 37, 32, .25);
+	border-radius: 50%;
+}
+
+.ts-enq__type input:checked + .ts-enq__type-label {
+	border-color: var(--ts-enq-accent);
+	background: #FFF4EC;
+}
+
+.ts-enq__type input:checked + .ts-enq__type-label .ts-enq__tick {
+	border: 6px solid var(--ts-enq-accent);
+}
+
+.ts-enq__type input:focus-visible + .ts-enq__type-label,
+.ts-enq__pill input:focus-visible + label {
+	outline: 3px solid rgba(243, 105, 42, .4);
+	outline-offset: 2px;
+}
+
+/* Boxes */
+.ts-enq__row {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.ts-enq__field {
+	min-width: 0;
+	margin-top: 18px;
+}
+
+.ts-w .ts-enq__input {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	min-height: 0;
+	margin: 0;
+	padding: 13px 14px;
+	border: 1.5px solid rgba(56, 37, 32, .2);
+	border-radius: 12px;
+	background: var(--ts-cream);
+	box-shadow: none;
+	color: var(--ts-esp);
+	font-family: var(--ts-font-body);
+	font-size: 15.5px;
+	line-height: 1.4;
+	transition: border-color .15s, box-shadow .15s;
+}
+
+/* Dropdowns: the theme's form CSS gives every select a fixed 40px height,
+   which is shorter than this padding plus the text and clips the chosen value. */
+.ts-w select.ts-enq__input {
+	height: auto;
+	line-height: 1.4;
+}
+
+.ts-w textarea.ts-enq__input {
+	min-height: 130px;
+	resize: vertical;
+}
+
+.ts-w .ts-enq__input:focus {
+	outline: none;
+	border-color: var(--ts-enq-accent);
+	box-shadow: 0 0 0 3px rgba(243, 105, 42, .18);
+}
+
+.ts-enq__hint {
+	margin-top: 6px;
+	font-size: 12.5px;
+	line-height: 1.45;
+	color: var(--ts-muted-2);
+}
+
+.ts-enq__err {
+	display: none;
+	margin-top: 6px;
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.45;
+	color: var(--ts-enq-error);
+}
+
+.ts-enq__field.is-invalid .ts-enq__err {
+	display: block;
+}
+
+.ts-w .ts-enq__field.is-invalid .ts-enq__input {
+	border-color: var(--ts-enq-error);
+}
+
+/* Tick boxes */
+.ts-enq__check {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-top: 14px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--ts-muted);
+	cursor: pointer;
+}
+
+.ts-enq__check input {
+	flex: none;
+	width: 18px;
+	height: 18px;
+	margin: 2px 0 0;
+	accent-color: var(--ts-enq-accent);
+}
+
+.ts-enq__field--consent .ts-enq__check {
+	margin-top: 0;
+}
+
+/* Interest pills */
+.ts-enq__pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.ts-enq__pill {
+	position: relative;
+}
+
+.ts-enq__pill label {
+	display: inline-block;
+	padding: 9px 16px;
+	border: 1.5px solid rgba(56, 37, 32, .2);
+	border-radius: 100px;
+	background: var(--ts-cream);
+	color: var(--ts-muted);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.3;
+	cursor: pointer;
+}
+
+.ts-enq__pill input:checked + label {
+	border-color: var(--ts-esp);
+	background: var(--ts-esp);
+	color: #fff;
+}
+
+/* Extra questions: hidden until their type is chosen (only once the script runs; without it all show). */
+.ts-enq--js .ts-enq__extra:not(.is-shown) {
+	display: none;
+}
+
+.ts-enq__box {
+	margin-top: 26px;
+	padding: 4px 0 4px 18px;
+	border-left: 4px solid var(--ts-enq-accent);
+}
+
+.ts-enq__box-title {
+	margin-bottom: 2px;
+	font-family: var(--ts-font-head);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+/* Sending */
+.ts-enq__summary {
+	margin-top: 18px;
+	padding: 12px 14px;
+	border: 1px solid rgba(192, 57, 43, .35);
+	border-radius: 12px;
+	background: #FDECEA;
+	color: #8E2A1F;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.45;
+}
+
+.ts-enq__submit-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 18px;
+	margin-top: 30px;
+}
+
+.ts-w .ts-enq__submit {
+	padding: 17px 32px;
+}
+
+.ts-w .ts-enq__submit:disabled {
+	opacity: .7;
+	cursor: progress;
+}
+
+.ts-enq__note {
+	font-size: 13.5px;
+	font-weight: 600;
+	color: var(--ts-muted-2);
+}
+
+/* Thank-you message */
+.ts-enq__success {
+	padding: 30px 10px;
+	text-align: center;
+	outline: none;
+}
+
+.ts-enq__success-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 72px;
+	height: 72px;
+	margin: 0 auto 18px;
+	border-radius: 50%;
+	background: rgba(56, 168, 51, .14);
+	color: var(--ts-oasis-d);
+}
+
+.ts-enq__success-title {
+	--ts-fs: 26px;
+	--ts-lh: 1.25;
+	font-family: var(--ts-font-head);
+	font-size: var(--ts-fs);
+	font-weight: 700;
+	line-height: var(--ts-lh);
+	letter-spacing: -.015em;
+}
+
+.ts-enq__success-text {
+	--ts-fs: 16px;
+	--ts-lh: 1.6;
+	max-width: 440px;
+	margin: 10px auto 0;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+.ts-w .ts-btn.ts-enq__wa,
+.ts-w .ts-btn.ts-enq__wa:hover,
+.ts-w .ts-btn.ts-enq__wa:focus {
+	margin-top: 22px;
+	padding: 13px 22px;
+	background-color: #25D366;
+	color: #fff;
+	font-size: 15px;
+}
+
+@container (max-width: 540px) {
+	.ts-enq__row {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0;
+	}
+}
+
+@container (max-width: 500px) {
+	.ts-enq__types {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.ts-enq {
+		padding: 26px 20px;
+	}
+}

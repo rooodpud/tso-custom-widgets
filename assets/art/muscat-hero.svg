@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1200 440" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="muSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEC996"/><stop offset="100%" stop-color="#CDEFEF"/></linearGradient>
+      <linearGradient id="muMtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#807A67"/><stop offset="100%" stop-color="#5E3C35"/></linearGradient>
+      <linearGradient id="muSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0392CC"/><stop offset="100%" stop-color="#0A4E70"/></linearGradient>
+    </defs>
+    <rect width="1200" height="440" fill="url(#muSky)"/>
+    <circle cx="1040" cy="90" r="44" fill="#FFC300"/>
+    <path d="M0 250 L120 150 L230 230 L360 120 L500 240 L640 140 L780 230 L920 130 L1060 220 L1200 160 V320 H0 Z" fill="url(#muMtn)"/>
+    <!-- white low-rise town -->
+    <g fill="#FFFCF6">
+      <rect x="120" y="262" width="70" height="46"/><rect x="200" y="272" width="54" height="36"/><rect x="264" y="256" width="80" height="52"/>
+      <rect x="360" y="268" width="60" height="40"/><rect x="430" y="260" width="72" height="48"/>
+      <rect x="700" y="266" width="64" height="42"/><rect x="774" y="258" width="86" height="50"/><rect x="870" y="270" width="56" height="38"/>
+    </g>
+    <!-- mosque dome + minaret -->
+    <g transform="translate(560,210)">
+      <rect x="0" y="50" width="100" height="48" fill="#FFFCF6"/>
+      <path d="M10 52 Q 50 -4 90 52 Z" fill="#FFC300"/>
+      <rect x="110" y="0" width="12" height="98" fill="#FFFCF6"/>
+      <path d="M108 2 L116 -16 L124 2 Z" fill="#FFC300"/>
+    </g>
+    <!-- fort on the rock -->
+    <g transform="translate(990,230)">
+      <path d="M0 78 L20 30 L90 30 L110 78 Z" fill="#AF6A2F"/>
+      <rect x="30" y="4" width="50" height="30" fill="#B6712A"/>
+      <rect x="30" y="-2" width="10" height="8" fill="#B6712A"/><rect x="50" y="-2" width="10" height="8" fill="#B6712A"/><rect x="70" y="-2" width="10" height="8" fill="#B6712A"/>
+    </g>
+    <rect x="0" y="306" width="1200" height="4" fill="#E8D9C4"/>
+    <path d="M0 310 H1200 V440 H0 Z" fill="url(#muSea)"/>
+    <!-- dhow -->
+    <g transform="translate(300,350)">
+      <path d="M0 30 Q 50 42 110 30 L100 44 Q 54 52 10 44 Z" fill="#382520"/>
+      <line x1="52" y1="30" x2="52" y2="-4" stroke="#382520" stroke-width="3"/>
+      <path d="M52 0 L88 24 L52 24 Z" fill="#F3692A"/>
+    </g>
+  </svg>

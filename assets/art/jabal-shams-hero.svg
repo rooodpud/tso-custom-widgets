@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="jsSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7B06B"/><stop offset="60%" stop-color="#FEC996"/><stop offset="100%" stop-color="#CDEFEF"/></linearGradient>
+        <linearGradient id="jsRock" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#807A67"/><stop offset="100%" stop-color="#472D1E"/></linearGradient>
+        <linearGradient id="jsDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5E3C35"/><stop offset="100%" stop-color="#241611"/></linearGradient>
+      </defs>
+      <rect width="1200" height="460" fill="url(#jsSky)"/>
+      <!-- rising sun, partly behind the far ridge -->
+      <circle cx="880" cy="185" r="70" fill="#FFC300"/>
+      <g stroke="#FFC300" stroke-width="4" stroke-linecap="round" opacity=".6">
+        <line x1="880" y1="85" x2="880" y2="59"/><line x1="800" y1="111" x2="782" y2="93"/><line x1="960" y1="111" x2="978" y2="93"/>
+      </g>
+      <!-- far ridge: starts behind the near rim, so no floating edge -->
+      <path d="M380 250 L540 205 L700 165 L790 205 L880 170 L980 205 L1080 165 L1200 200 V340 H380 Z" fill="#8A8390"/>
+      <!-- canyon depth, filled dark between the two walls -->
+      <path d="M470 200 L720 240 L720 460 L470 460 Z" fill="url(#jsDeep)"/>
+      <!-- near rim (left) -->
+      <path d="M0 200 L140 160 L300 190 L420 180 L470 200 L500 460 H0 Z" fill="url(#jsRock)"/>
+      <!-- far canyon wall (right) -->
+      <path d="M720 240 L820 225 L1000 245 L1200 230 V460 H690 Z" fill="url(#jsRock)"/>
+      <!-- figure on the rim -->
+      <g transform="translate(400,160)">
+        <circle cx="0" cy="-2" r="6" fill="#382520"/>
+        <rect x="-4" y="4" width="8" height="18" rx="3" fill="#382520"/>
+      </g>
+      <!-- rooftop tent car on the plateau -->
+      <g transform="translate(150,128) scale(.55)">
+        <rect x="0" y="40" width="150" height="40" rx="8" fill="#382520"/>
+        <rect x="16" y="6" width="90" height="38" rx="8" fill="#382520"/>
+        <rect x="10" y="-18" width="104" height="26" rx="6" fill="#F3692A"/>
+        <circle cx="32" cy="82" r="15" fill="#241611"/><circle cx="118" cy="82" r="15" fill="#241611"/>
+      </g>
+</svg>

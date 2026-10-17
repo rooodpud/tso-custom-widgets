@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="c4sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#382520"/><stop offset="100%" stop-color="#6E5230"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#c4sky)"/>
+          <path d="M0 220 Q 120 195 240 220 T 400 210 V300 H0 Z" fill="#2C8828" opacity=".8"/>
+          <circle cx="150" cy="235" r="34" fill="#38A833" opacity=".9"/>
+          <g transform="translate(90,60)">
+            <line x1="0" y1="0" x2="0" y2="170" stroke="#241611" stroke-width="4"/>
+            <circle cx="0" cy="0" r="10" fill="#FFC300"/>
+            <path d="M-16 -14 L16 -14 L10 4 L-10 4 Z" fill="#FFC300" opacity=".35"/>
+          </g>
+          <g transform="translate(300,40)">
+            <line x1="0" y1="0" x2="0" y2="190" stroke="#241611" stroke-width="4"/>
+            <circle cx="0" cy="0" r="10" fill="#FFC300"/>
+            <path d="M-16 -14 L16 -14 L10 4 L-10 4 Z" fill="#FFC300" opacity=".35"/>
+          </g>
+          <line x1="150" y1="235" x2="150" y2="185" stroke="#fff" stroke-width="2.5"/>
+          <path d="M150 187 L182 198 L150 209 Z" fill="#F3692A"/>
+        </svg>

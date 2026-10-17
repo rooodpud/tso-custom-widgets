@@ -1,0 +1,513 @@
+/* TS Media Cards */
+.ts-mcards__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 22px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-mcards__item {
+	display: flex;
+	min-width: 0;
+	margin: 0;
+}
+
+.ts-mcard {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-width: 0;
+	overflow: hidden;
+	background: var(--ts-sand);
+	border: 1px solid var(--ts-line);
+	border-radius: 18px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.ts-w a.ts-mcard:hover,
+.ts-w a.ts-mcard:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ts-w a.ts-mcard:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-mcard__media {
+	position: relative;
+	flex: none;
+	height: 96px;
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--ts-a, #38A833), var(--ts-b, #2C8828));
+}
+
+.ts-mcard__img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Picture on top: same 170px frame as TS Trip Cards, so more of the photo shows (was 96px).
+   Beside / overlay layouts keep their own heights; the "Picture height" control still overrides this. */
+.ts-mcards--stacked .ts-mcard__media {
+	height: 170px;
+}
+
+/* Elementor's ".elementor img { height: auto }" is stronger than the rule above: without this the photo
+   kept its own shape and, on narrow cards, stopped short so the colour blend showed below it. */
+.ts-w .ts-mcard__img {
+	height: 100%;
+}
+
+.ts-mcard__badge {
+	position: absolute;
+	z-index: 1;
+	padding: 5px 11px;
+	border-radius: 100px;
+	background: rgba(0, 0, 0, .22);
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.62; /* 1.9.3: drafts' line height (was 1.2). */
+}
+
+/* Position is always an explicit choice (control: Badge position), never tied to the layout. */
+.ts-mcard__badge--top-left {
+	top: 14px;
+	left: 14px;
+}
+
+.ts-mcard__badge--top-right {
+	top: 14px;
+	right: 14px;
+}
+
+.ts-mcard__badge--bottom-left {
+	bottom: 10px;
+	left: 14px;
+}
+
+.ts-mcard__badge--bottom-right {
+	bottom: 10px;
+	right: 14px;
+}
+
+/*
+ * Layer 2: overlay on the picture (controls: Picture overlay, colour, opacity, covers, height, edge).
+ * Off unless the widget adds .ts-mcards--ov-on.
+ */
+.ts-mcard__media::after {
+	content: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+	background: var(--ts-mcard-ov-color, #000);
+	opacity: var(--ts-mcard-ov-opacity, .62);
+	pointer-events: none;
+}
+
+.ts-mcards--ov-on .ts-mcard__media::after {
+	content: '';
+}
+
+.ts-mcards--ov-full .ts-mcard__media::after {
+	top: 0;
+	bottom: 0;
+}
+
+.ts-mcards--ov-bottom .ts-mcard__media::after {
+	bottom: 0;
+	height: var(--ts-mcard-ov-size, 65%);
+}
+
+.ts-mcards--ov-top .ts-mcard__media::after {
+	top: 0;
+	height: var(--ts-mcard-ov-size, 65%);
+}
+
+.ts-mcards--ov-fade.ts-mcards--ov-bottom .ts-mcard__media::after,
+.ts-mcards--ov-fade.ts-mcards--ov-full .ts-mcard__media::after {
+	-webkit-mask-image: linear-gradient(to top, #000, transparent);
+	mask-image: linear-gradient(to top, #000, transparent);
+}
+
+.ts-mcards--ov-fade.ts-mcards--ov-top .ts-mcard__media::after {
+	-webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+	mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+.ts-mcard__body {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 22px;
+}
+
+/* Layer 3: background behind the text (controls: Text background colour, opacity). Sand by default, as in the design. */
+.ts-mcard__body::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: var(--ts-mcard-textbg, var(--ts-sand));
+	opacity: var(--ts-mcard-textbg-opacity, 1);
+	pointer-events: none;
+}
+
+.ts-mcard__kicker {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .05em; /* 1.9.3: as most drafts' .kicker */
+	text-transform: uppercase;
+	color: var(--ts-tq-d);
+}
+
+.ts-mcard__title {
+	margin-bottom: 6px;
+	--ts-fs: 17.5px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+}
+
+.ts-mcard__text {
+	--ts-fs: 14px;
+	--ts-lh: 1.62;
+	font-size: var(--ts-fs);
+	line-height: var(--ts-lh);
+	color: var(--ts-muted);
+}
+
+.ts-mcard__link {
+	margin-top: auto;
+	padding-top: 14px;
+	font-size: 14px;
+	font-weight: 700;
+	/* --ts-mcard-link-color (control: Link colour) overrides both layouts at once when set. */
+	color: var(--ts-mcard-link-color, var(--ts-terra-d));
+}
+
+/* Tip box at the bottom of the card (controls: Tip box colour, text, bold start, corners). */
+.ts-mcard__tip {
+	margin-top: auto;
+	padding: 12px 14px;
+	border-radius: 12px;
+	background: var(--ts-sand);
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.62;
+	color: var(--ts-muted);
+}
+
+.ts-mcard__tip b {
+	font-weight: 700;
+	color: var(--ts-terra-d);
+}
+
+.ts-mcard__text:has(+ .ts-mcard__tip),
+.ts-mcard__title:has(+ .ts-mcard__tip) {
+	margin-bottom: 16px;
+}
+
+.ts-mcard__tip + .ts-mcard__link {
+	margin-top: 0;
+}
+
+/* Text over the picture */
+.ts-mcards--overlay .ts-mcard {
+	position: relative;
+	justify-content: flex-end;
+	min-height: 280px;
+	/* No border: a transparent one let the dark card background show as a 1px ring around the picture. */
+	border: 0;
+	background: var(--ts-esp);
+}
+
+.ts-mcards--overlay .ts-mcard__media {
+	position: absolute;
+	inset: 0;
+	height: auto;
+}
+
+/* The text block is only as tall as its text, so a text background never hides the whole picture. */
+.ts-mcards--overlay .ts-mcard__body {
+	z-index: 1;
+	flex: none;
+}
+
+/* Same text colours as "Picture on top" (Title/Text/Caption/Link colour controls, linked to Site Settings). */
+.ts-mcards--overlay .ts-mcard__link {
+	margin-top: 0;
+}
+
+/* ---------- 1.6.0 additions ---------- */
+
+/* Picture beside the text (control: Picture and text, per device; picture width / stacked height). */
+.ts-mcards--beside .ts-mcard {
+	flex-direction: var(--ts-mb-dir, row);
+	background: var(--ts-cream);
+}
+
+.ts-mcards--beside .ts-mcard__media {
+	flex: none;
+	width: var(--ts-mb-w, 130px);
+	height: var(--ts-mb-h, auto);
+	min-height: 90px;
+}
+
+/* Key facts: a small grid of label (capitals) over value, under a thin line. */
+.ts-mcard__facts {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 8px 14px;
+	margin: auto 0 0;
+	padding-top: 14px;
+	border-top: 1px solid var(--ts-line);
+	font-size: 12.5px;
+	line-height: 1.62; /* 1.9.3: drafts' line height (was 1.45). */
+}
+
+.ts-mcard__fact {
+	min-width: 0;
+}
+
+.ts-mcard__fact dt {
+	margin: 0;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-mcard__fact dd {
+	margin: 0;
+	font-weight: 700;
+	color: var(--ts-esp);
+}
+
+.ts-mcard__text:has(+ .ts-mcard__facts) {
+	margin-bottom: 16px;
+}
+
+.ts-mcard__facts + .ts-mcard__tip {
+	margin-top: 14px;
+}
+
+.ts-mcard__facts + .ts-mcard__link {
+	margin-top: 0;
+	padding-top: 16px;
+}
+
+/* Filter buttons, rating key and count line. */
+.ts-mcards__bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px 16px;
+	margin-bottom: 30px;
+}
+
+.ts-mcards__bar + .ts-mcards__count {
+	margin-top: -12px;
+}
+
+.ts-mcards__filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.ts-w .ts-mcards__filter {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 11px 20px;
+	border: 2px solid var(--ts-line);
+	border-radius: 100px;
+	background: transparent;
+	color: var(--ts-muted);
+	font-family: var(--ts-font-body);
+	font-size: 14.5px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-transform: none;
+	letter-spacing: normal;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.ts-w .ts-mcards__filter:hover,
+.ts-w .ts-mcards__filter:focus {
+	background: transparent;
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-mcards__filter[aria-pressed="true"] {
+	background: var(--ts-esp);
+	border-color: var(--ts-esp);
+	color: #fff;
+}
+
+.ts-w .ts-mcards__filter:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-mcards__dot {
+	flex: none;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--ts-muted-2);
+}
+
+.ts-mcards__key {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--ts-muted-2);
+}
+
+.ts-mcards__key-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Clickable levels (control: Visitors can click a level to show only those cards). */
+.ts-mcards__key--buttons {
+	gap: 8px;
+}
+
+.ts-w .ts-mcards__level {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	padding: 6px 12px;
+	border: 1px solid transparent;
+	border-radius: 100px;
+	background: transparent;
+	color: inherit;
+	font-family: var(--ts-font-body);
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1.2;
+	letter-spacing: normal;
+	text-transform: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.ts-w .ts-mcards__level:hover,
+.ts-w .ts-mcards__level:focus {
+	background: transparent;
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-mcards__level[aria-pressed="true"] {
+	border-color: var(--ts-esp);
+	color: var(--ts-esp);
+}
+
+.ts-w .ts-mcards__level:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+.ts-mcards__key-bars {
+	display: inline-flex;
+	line-height: 0;
+}
+
+.ts-mcards__count {
+	margin: 0 0 18px;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--ts-muted-2);
+}
+
+.ts-mcards__item[hidden] {
+	display: none;
+}
+
+/* 1.8.1: letters on the colour blend (control: Letters on the colour blend), centred on the picture area. */
+.ts-mcard__initials {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--ts-font-head, inherit);
+	font-size: 56px;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -.02em;
+	color: rgba(255, 255, 255, .92);
+	pointer-events: none;
+}
+
+/* 1.8.1: tags with an optional small heading; pushed to the bottom of the card like the key facts. */
+.ts-mcard__tags {
+	margin-top: auto;
+	padding-top: 16px;
+}
+
+.ts-mcard__tags-label {
+	margin: 0 0 8px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-mcard__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-mcard__chips li {
+	margin: 0;
+	padding: 5px 11px;
+	border: 1px solid var(--ts-line);
+	border-radius: 100px;
+	background: var(--ts-cream);
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--ts-muted);
+}
+
+.ts-mcard__tags + .ts-mcard__facts {
+	margin-top: 14px;
+}
+
+.ts-mcard__tags + .ts-mcard__tip {
+	margin-top: 14px;
+}
+
+.ts-mcard__tags + .ts-mcard__link {
+	margin-top: 0;
+	padding-top: 16px;
+}

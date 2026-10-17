@@ -1,0 +1,123 @@
+/* TS Notice (1.8.0): a box of formatted text with an optional icon and title.
+ * Each look sets four variables; the Box and Text colour controls replace them.
+ */
+.ts-notice {
+	--ts-notice-bg: rgba(3, 146, 204, .08);
+	--ts-notice-line: rgba(3, 146, 204, .3);
+	--ts-notice-fg: #0A4E70;
+	--ts-notice-icon: var(--ts-tq-d);
+	display: flex;
+	align-items: flex-start;
+	column-gap: 12px;
+	padding: 16px 18px;
+	border: 1px solid var(--ts-notice-line);
+	border-radius: 14px;
+	background: var(--ts-notice-bg);
+	color: var(--ts-notice-fg);
+	font-size: 14.5px;
+	line-height: 1.6;
+}
+
+.ts-notice--warning {
+	--ts-notice-bg: rgba(243, 105, 42, .08);
+	--ts-notice-line: rgba(243, 105, 42, .35);
+	--ts-notice-fg: #8A3510;
+	--ts-notice-icon: var(--ts-terra-d);
+}
+
+.ts-notice--good {
+	--ts-notice-bg: rgba(56, 168, 51, .08);
+	--ts-notice-line: rgba(56, 168, 51, .3);
+	--ts-notice-fg: #1F5E1B;
+	--ts-notice-icon: var(--ts-oasis-d);
+}
+
+.ts-notice--plain {
+	--ts-notice-bg: var(--ts-sand);
+	--ts-notice-line: var(--ts-line);
+	--ts-notice-fg: var(--ts-muted);
+	--ts-notice-icon: var(--ts-terra);
+	padding: 22px 24px;
+	border-radius: 16px;
+}
+
+.ts-notice__icon {
+	display: flex;
+	flex: none;
+	align-items: center;
+	/* As tall as one line of text, so the icon sits level with the first line. */
+	height: 1.6em;
+	color: var(--ts-notice-icon);
+	font-size: 17px;
+	line-height: 1;
+}
+
+.ts-notice__icon svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.ts-notice__body {
+	flex: 1;
+	min-width: 0;
+}
+
+.ts-notice .ts-notice__title {
+	margin-bottom: 8px;
+	font-size: 17px;
+	line-height: 1.3;
+}
+
+.ts-notice--info .ts-notice__title,
+.ts-notice--warning .ts-notice__title,
+.ts-notice--good .ts-notice__title {
+	color: var(--ts-notice-fg);
+}
+
+.ts-notice__text {
+	color: var(--ts-notice-fg);
+}
+
+/* Formatted text: paragraphs, lists, links. */
+.ts-notice__text > :first-child {
+	margin-top: 0;
+}
+
+.ts-notice__text > :last-child {
+	margin-bottom: 0;
+}
+
+.ts-notice__text :where(p) {
+	margin: 0 0 10px;
+}
+
+.ts-notice__text :where(ul, ol) {
+	margin: 0 0 10px;
+	padding-left: 20px;
+}
+
+.ts-notice__text :where(li) {
+	margin: 0 0 4px;
+}
+
+.ts-notice .ts-notice__text a {
+	color: inherit;
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.ts-notice--plain .ts-notice__text a {
+	color: var(--ts-terra-d);
+}
+
+.ts-notice .ts-notice__text a:hover,
+.ts-notice .ts-notice__text a:focus {
+	text-decoration-thickness: 2px;
+}
+
+.ts-notice .ts-notice__text a:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}

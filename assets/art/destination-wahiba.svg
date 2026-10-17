@@ -1,0 +1,15 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="skyW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD9A8"/><stop offset="1" stop-color="#FFF1DC"/></linearGradient></defs>
+          <rect width="480" height="300" fill="url(#skyW)"/>
+          <circle cx="360" cy="120" r="34" fill="#F3692A" opacity=".9"/>
+          <path d="M0 170 Q90 120 190 160 Q280 196 360 150 Q420 118 480 140 L480 300 L0 300 Z" fill="#F0A86E"/>
+          <path d="M0 215 Q110 160 230 205 Q330 240 480 190 L480 300 L0 300 Z" fill="#E8894A"/>
+          <path d="M0 262 Q140 222 270 252 Q380 276 480 246 L480 300 L0 300 Z" fill="#D6521A"/>
+          <path d="M190 160 Q230 172 260 182" stroke="#FFE2BE" stroke-width="2" fill="none" opacity=".8"/>
+          <!-- camel -->
+          <g fill="#382520">
+            <path d="M120 196 Q124 178 138 176 Q146 168 154 176 Q162 166 172 176 Q180 178 182 188 L186 172 Q188 160 198 160 L202 166 L196 170 L192 192 Q190 200 184 202 L184 226 L179 226 L178 204 L146 204 L144 226 L139 226 L138 204 Q126 204 120 196 Z"/>
+          </g>
+          <!-- camp -->
+          <g><path d="M60 236 L84 214 L108 236 Z" fill="#6B4636"/><path d="M96 238 L114 222 L132 238 Z" fill="#8A6248"/></g>
+        </svg>

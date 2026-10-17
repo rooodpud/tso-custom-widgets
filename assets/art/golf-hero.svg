@@ -1,0 +1,19 @@
+<svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gfSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5DC3E6"/><stop offset="100%" stop-color="#CDEFEF"/>
+          </linearGradient>
+          <linearGradient id="gfGrass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4EA92D"/><stop offset="100%" stop-color="#2C8828"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="420" fill="url(#gfSky)"/>
+        <path d="M0 260 Q 220 200 460 255 T 900 235 T 1200 250 V420 H0 Z" fill="#CE893D" opacity=".55"/>
+        <path d="M0 300 Q 260 260 540 305 T 960 285 T 1200 300 V420 H0 Z" fill="url(#gfGrass)"/>
+        <circle cx="900" cy="280" r="70" fill="#38A833" opacity=".8"/>
+        <circle cx="900" cy="280" r="70" fill="none" stroke="#2C8828" stroke-width="2" opacity=".5"/>
+        <line x1="900" y1="280" x2="900" y2="200" stroke="#382520" stroke-width="3"/>
+        <path d="M900 202 L950 218 L900 234 Z" fill="#F3692A"/>
+        <circle cx="640" cy="300" r="9" fill="#fff" stroke="#382520" stroke-width="1.5"/>
+        <circle cx="1080" cy="80" r="40" fill="#FFC300"/>
+      </svg>

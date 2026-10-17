@@ -1,0 +1,20 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="skyS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B8"/><stop offset="1" stop-color="#FBEBD2"/></linearGradient></defs>
+          <rect width="480" height="300" fill="url(#skyS)"/>
+          <circle cx="390" cy="58" r="28" fill="#FFC300"/>
+          <!-- far peak -->
+          <path d="M120 140 L230 50 L330 140 Z" fill="#C9A27A" opacity=".7"/>
+          <!-- canyon walls: left and right masses, deep gap between -->
+          <path d="M0 110 L150 118 L200 130 L210 300 L0 300 Z" fill="#9C7356"/>
+          <path d="M480 108 L320 120 L270 132 L262 300 L480 300 Z" fill="#8A6248"/>
+          <!-- canyon floor / far wall -->
+          <path d="M200 130 L270 132 L262 300 L210 300 Z" fill="#6B4636"/>
+          <path d="M228 300 Q234 250 236 200 Q238 170 236 140" stroke="#38A833" stroke-width="3" fill="none" opacity=".6"/>
+          <!-- strata lines -->
+          <g stroke="#7A5440" stroke-width="2" opacity=".5" fill="none">
+            <path d="M0 160 L195 168"/><path d="M0 205 L200 212"/><path d="M0 250 L205 256"/>
+            <path d="M480 158 L275 168"/><path d="M480 204 L270 212"/><path d="M480 250 L266 256"/>
+          </g>
+          <!-- walker on the rim -->
+          <g fill="#382520"><circle cx="110" cy="102" r="4"/><rect x="107" y="106" width="6" height="11" rx="2"/></g>
+        </svg>

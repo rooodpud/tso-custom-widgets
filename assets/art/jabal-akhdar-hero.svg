@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="jaSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8CDBDA"/><stop offset="100%" stop-color="#CDEFEF"/></linearGradient>
+        <linearGradient id="jaMtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#807A67"/><stop offset="100%" stop-color="#5E3C35"/></linearGradient>
+        <linearGradient id="jaMtn2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6E6B7A"/><stop offset="100%" stop-color="#472D1E"/></linearGradient>
+      </defs>
+      <rect width="1200" height="460" fill="url(#jaSky)"/>
+      <circle cx="1060" cy="80" r="40" fill="#FFC300"/>
+      <path d="M0 200 L150 90 L300 180 L470 60 L640 170 L820 80 L1000 170 L1200 100 V460 H0 Z" fill="url(#jaMtn2)" opacity=".75"/>
+      <path d="M0 300 L180 180 L360 270 L560 150 L760 260 L960 170 L1200 250 V460 H0 Z" fill="url(#jaMtn)"/>
+      <!-- terraces stepping down the slope -->
+      <g>
+        <path d="M520 190 Q 600 184 680 196 L680 206 Q 600 196 520 202 Z" fill="#38A833"/>
+        <path d="M490 222 Q 590 214 700 228 L700 238 Q 590 226 490 234 Z" fill="#4EA92D"/>
+        <path d="M460 256 Q 580 246 720 262 L720 272 Q 580 258 460 268 Z" fill="#38A833"/>
+        <path d="M430 292 Q 570 280 740 298 L740 308 Q 570 292 430 304 Z" fill="#57C235"/>
+        <path d="M400 330 Q 560 316 760 336 L760 346 Q 560 328 400 342 Z" fill="#38A833"/>
+      </g>
+      <!-- rose dots -->
+      <g fill="#F3692A"><circle cx="560" cy="226" r="4"/><circle cx="620" cy="224" r="4"/><circle cx="530" cy="262" r="4"/><circle cx="660" cy="258" r="4"/><circle cx="600" cy="298" r="4"/></g>
+      <!-- village houses at the rim -->
+      <g fill="#AF6A2F"><rect x="790" y="218" width="34" height="26"/><rect x="828" y="210" width="28" height="34"/><rect x="860" y="222" width="36" height="22"/></g>
+      <!-- winding road -->
+      <path d="M60 460 C 160 400 90 360 200 330 S 300 300 260 270 S 360 230 420 250" fill="none" stroke="#FFFCF6" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 12" opacity=".9"/>
+</svg>

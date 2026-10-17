@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1180 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated map of Muscat's coastline with five numbered neighbourhoods">
+    <rect width="1180" height="300" fill="#FBF6EE"/>
+    <!-- mountains inland (top) -->
+    <path d="M0 0 H1180 V70 L1100 110 L1020 70 L930 115 L840 72 L740 118 L640 78 L540 120 L440 80 L340 122 L240 84 L140 124 L60 90 L0 110 Z" fill="#807A67" opacity=".35"/>
+    <!-- sea (bottom) -->
+    <path d="M0 230 Q 100 205 200 222 T 420 214 T 640 226 T 860 210 T 1060 222 T 1180 206 V300 H0 Z" fill="#0392CC" opacity=".85"/>
+    <!-- coastal road -->
+    <path d="M1110 175 Q 980 150 860 172 T 620 176 T 380 170 T 120 180" fill="none" stroke="#F3692A" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <!-- pins: 1 Old Muscat (east/right) → 5 Al Mouj (west/left) -->
+    <g font-family="Bricolage Grotesque, Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">
+      <circle cx="1110" cy="175" r="18" fill="#0392CC"/><text x="1110" y="181" fill="#fff" font-size="16">1</text>
+      <text x="1110" y="146" fill="#382520" font-size="14">Old Muscat</text>
+      <circle cx="930" cy="160" r="18" fill="#0392CC"/><text x="930" y="166" fill="#fff" font-size="16">2</text>
+      <text x="930" y="131" fill="#382520" font-size="14">Mutrah</text>
+      <circle cx="700" cy="178" r="18" fill="#0392CC"/><text x="700" y="184" fill="#fff" font-size="16">3</text>
+      <text x="700" y="149" fill="#382520" font-size="14">Qurum</text>
+      <circle cx="440" cy="168" r="18" fill="#0392CC"/><text x="440" y="174" fill="#fff" font-size="16">4</text>
+      <text x="440" y="139" fill="#382520" font-size="14">Bawshar &amp; Ghubra</text>
+      <circle cx="140" cy="180" r="18" fill="#0392CC"/><text x="140" y="186" fill="#fff" font-size="16">5</text>
+      <text x="140" y="151" fill="#382520" font-size="14">Al Mouj</text>
+    </g>
+    <text x="30" y="275" font-family="Karla, Arial, Helvetica, sans-serif" font-weight="700" font-size="13" fill="#fff" opacity=".9">GULF OF OMAN</text>
+    <text x="30" y="40" font-family="Karla, Arial, Helvetica, sans-serif" font-weight="700" font-size="13" fill="#382520" opacity=".55">HAJAR MOUNTAINS</text>
+    <text x="1150" y="40" font-family="Karla, Arial, Helvetica, sans-serif" font-weight="700" font-size="12" fill="#382520" opacity=".55" text-anchor="end">EAST →</text>
+  </svg>

@@ -1,0 +1,40 @@
+/* TS Art */
+/* 1.9.1: the widget fills its container's width. Without a set width, Elementor's flex containers size
+   the widget from the drawing's own small size (300px wide), so on phones the widget came out shorter
+   than the picture and the next section covered its bottom. :where() keeps this weaker than Elementor's
+   own width setting (Advanced > Layout > Width). */
+:where(.e-con > .elementor-widget-ts-art, .e-con-inner > .elementor-widget-ts-art) {
+	width: 100%;
+}
+
+.ts-art {
+	display: block;
+	width: 100%;
+	margin: 0;
+	line-height: 0;
+}
+
+.ts-art__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	/* 1.9.6: with a set Height the picture is cropped, not squashed (Style > Object Fit / Position override). */
+	object-fit: cover;
+}
+
+/* Drawings made to stretch to any box (e.g. the Salalah trail line) keep stretching. */
+.ts-art__img--stretch {
+	object-fit: fill;
+}
+
+/* Drawing placed in the page ("Use the site fonts for text in the art"): the wrapper takes the corners and border. */
+.ts-art__svg {
+	overflow: hidden;
+}
+
+.ts-art__svg svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}

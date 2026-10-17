@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="coSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEC996"/><stop offset="100%" stop-color="#CDEFEF"/></linearGradient>
+        <linearGradient id="coSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5DC3E6"/><stop offset="45%" stop-color="#0392CC"/><stop offset="100%" stop-color="#072F42"/></linearGradient>
+      </defs>
+      <rect width="1200" height="460" fill="url(#coSky)"/>
+      <circle cx="1030" cy="80" r="42" fill="#FFC300"/>
+      <!-- cliffs & island -->
+      <path d="M0 200 L60 120 L140 150 L200 110 L260 180 L280 200 Z" fill="#807A67"/>
+      <path d="M820 200 Q 870 170 920 186 Q 960 176 990 200 Z" fill="#AF6A2F"/>
+      <path d="M850 186 L852 160" stroke="#2C8828" stroke-width="3"/><path d="M852 162 C 840 156 834 150 832 144 C 842 148 850 154 852 162 Z M852 162 C 864 154 872 150 876 144 C 866 148 856 154 852 162 Z" fill="#38A833"/>
+      <!-- sea with waterline at y=200 -->
+      <rect x="0" y="200" width="1200" height="260" fill="url(#coSea)"/>
+      <path d="M0 200 Q 100 192 200 200 T 400 200 T 600 200 T 800 200 T 1000 200 T 1200 200" fill="none" stroke="#FFFCF6" stroke-width="3" opacity=".7"/>
+      <!-- dhow on surface -->
+      <g transform="translate(330,150)">
+        <path d="M0 48 Q 70 64 150 48 L136 66 Q 72 76 14 66 Z" fill="#5E3C35"/>
+        <line x1="72" y1="48" x2="72" y2="0" stroke="#382520" stroke-width="3"/>
+        <path d="M72 4 L118 40 L72 40 Z" fill="#F3692A"/>
+      </g>
+      <!-- dolphins -->
+      <g fill="#6E6B7A">
+        <path d="M560 214 C 580 196 612 196 628 212 L 640 206 L 634 220 C 612 214 584 216 566 226 Z"/>
+        <path d="M640 236 C 656 222 682 222 694 234 L 704 230 L 698 242 C 682 238 660 240 646 246 Z"/>
+      </g>
+      <!-- snorkeller at shallow depth -->
+      <g transform="translate(180,262)">
+        <ellipse cx="0" cy="0" rx="26" ry="6" fill="#382520"/>
+        <circle cx="-30" cy="-2" r="6" fill="#382520"/><rect x="-34" y="-16" width="3" height="12" fill="#F3692A"/>
+        <path d="M26 0 L40 -6 L40 6 Z" fill="#FFC300"/>
+      </g>
+      <!-- reef -->
+      <g>
+        <path d="M60 460 Q 90 400 120 430 Q 140 380 170 420 Q 200 390 220 460 Z" fill="#F3692A" opacity=".75"/>
+        <path d="M240 460 Q 262 420 284 440 Q 300 406 320 460 Z" fill="#FFC300" opacity=".7"/>
+      </g>
+      <!-- diver deeper -->
+      <g transform="translate(900,380)">
+        <ellipse cx="0" cy="0" rx="28" ry="7" fill="#1F1512"/>
+        <circle cx="-32" cy="-1" r="7" fill="#1F1512"/>
+        <rect x="-8" y="-14" width="22" height="8" rx="4" fill="#FFC300"/>
+        <path d="M28 0 L44 -7 L44 7 Z" fill="#F3692A"/>
+        <g fill="#FFFCF6" opacity=".7"><circle cx="-42" cy="-18" r="3"/><circle cx="-46" cy="-32" r="2.5"/><circle cx="-43" cy="-46" r="2"/></g>
+      </g>
+      <!-- fish -->
+      <g fill="#FFC300" opacity=".85"><path d="M500 330 l14 -6 l0 12 z M514 330 a10 6 0 1 0 20 0 a10 6 0 1 0 -20 0"/><path d="M560 352 l12 -5 l0 10 z M572 352 a9 5 0 1 0 18 0 a9 5 0 1 0 -18 0"/></g>
+</svg>

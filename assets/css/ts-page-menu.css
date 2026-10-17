@@ -1,0 +1,189 @@
+/* TS Page Menu (1.8.0): "On this page" list that stays in view; a dropdown on narrow screens.
+ *
+ * The widget's own box is the part that stays in view, so it must sit directly inside the tall
+ * section (see the note in the widget). Variables written by the Style controls:
+ *   --ts-pm-w      width of the list
+ *   --ts-pm-top    distance from the top of the screen while staying in view
+ *   --ts-pm-space  space above a section after jumping to it (read by ts-page-menu.js)
+ */
+.elementor-element.elementor-widget.elementor-widget-ts-page-menu {
+	/* --ts-pm-bar: height of the WordPress toolbar for logged-in visitors. --ts-pm-t: 0 while a dropdown. */
+	--ts-pm-bar: 0px;
+	position: sticky;
+	top: calc(var(--ts-pm-t, var(--ts-pm-top, 24px)) + var(--ts-pm-bar));
+	z-index: 5;
+	flex: none;
+	align-self: flex-start;
+	width: var(--ts-pm-w, 240px);
+	max-width: 100%;
+}
+
+.admin-bar .elementor-element.elementor-widget.elementor-widget-ts-page-menu {
+	--ts-pm-bar: 32px;
+}
+
+@media (max-width: 782px) {
+	.admin-bar .elementor-element.elementor-widget.elementor-widget-ts-page-menu {
+		--ts-pm-bar: 46px;
+	}
+}
+
+/* On small screens the WordPress toolbar scrolls away with the page. */
+@media (max-width: 600px) {
+	.admin-bar .elementor-element.elementor-widget.elementor-widget-ts-page-menu {
+		--ts-pm-bar: 0px;
+	}
+}
+
+/* Filled by the script; nothing to show until then (and nothing at all without headings). */
+.ts-pm:not(.is-ready) .ts-pm__side,
+.ts-pm:not(.is-ready) .ts-pm__jump {
+	display: none;
+}
+
+.ts-pm.is-ready .ts-pm__empty {
+	display: none;
+}
+
+/* ---------- List ---------- */
+.ts-pm__title {
+	margin-bottom: 12px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-pm__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ts-pm__item {
+	margin: 0;
+}
+
+.ts-pm .ts-pm__link {
+	display: block;
+	padding: 8px 14px;
+	border-left: 3px solid var(--ts-line);
+	font-size: 14.5px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--ts-muted);
+	text-decoration: none;
+	transition: color .15s, border-color .15s, background-color .15s;
+}
+
+.ts-pm .ts-pm__item--sub .ts-pm__link {
+	padding-left: 28px;
+	font-size: 13.5px;
+}
+
+.ts-pm .ts-pm__link:hover,
+.ts-pm .ts-pm__link:focus {
+	color: var(--ts-esp);
+	text-decoration: none;
+}
+
+.ts-pm .ts-pm__link:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: -3px;
+}
+
+.ts-pm .ts-pm__link.is-active {
+	border-left-color: var(--ts-terra);
+	background-color: rgba(243, 105, 42, .06);
+	color: var(--ts-terra-d);
+}
+
+/* ---------- Dropdown ---------- */
+.ts-pm__jump {
+	display: none;
+	padding: 12px 0;
+	background-color: var(--ts-cream);
+}
+
+.ts-pm__jump-label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	color: var(--ts-muted-2);
+}
+
+.ts-pm .ts-pm__select {
+	width: 100%;
+	height: auto;
+	padding: 12px 14px;
+	border: 1.5px solid rgba(56, 37, 32, .2);
+	border-radius: 12px;
+	background-color: var(--ts-sand);
+	font-family: inherit;
+	font-size: 15.5px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--ts-esp);
+}
+
+.ts-pm .ts-pm__select:focus-visible {
+	outline: 3px solid var(--ts-tq);
+	outline-offset: 2px;
+}
+
+/* Where the dropdown replaces the list: on every screen, up to tablets, or phones only.
+ * As a dropdown the menu is as wide as its section and sits right at the top of the screen. */
+.elementor-element.elementor-widget.elementor-widget-ts-page-menu:has(.ts-pm--drop-always) {
+	--ts-pm-t: 0px;
+	width: 100%;
+}
+
+.ts-pm--drop-always.is-ready .ts-pm__side {
+	display: none;
+}
+
+.ts-pm--drop-always.is-ready .ts-pm__jump {
+	display: block;
+}
+
+@media (max-width: 1024px) {
+	.elementor-element.elementor-widget.elementor-widget-ts-page-menu:has(.ts-pm--drop-tablet) {
+		--ts-pm-t: 0px;
+		width: 100%;
+	}
+
+	.ts-pm--drop-tablet.is-ready .ts-pm__side {
+		display: none;
+	}
+
+	.ts-pm--drop-tablet.is-ready .ts-pm__jump {
+		display: block;
+	}
+}
+
+@media (max-width: 767px) {
+	.elementor-element.elementor-widget.elementor-widget-ts-page-menu:has(.ts-pm--drop-mobile) {
+		--ts-pm-t: 0px;
+		width: 100%;
+	}
+
+	.ts-pm--drop-mobile.is-ready .ts-pm__side {
+		display: none;
+	}
+
+	.ts-pm--drop-mobile.is-ready .ts-pm__jump {
+		display: block;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ts-pm .ts-pm__link {
+		transition: none;
+	}
+}
