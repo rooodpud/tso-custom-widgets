@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Travel Store Custom Widgets
  * Description: Travel Store (TS) Elementor widgets for the Travel Store Oman site. Local development only.
- * Version:     1.13.1
+ * Version:     1.13.2
  * Author:      Pradeep Hingorani
  * GitHub Plugin URI: https://github.com/rooodpud/tso-custom-widgets
  * Primary Branch: main
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'TSW_PATH', plugin_dir_path( __FILE__ ) );
 define( 'TSW_URL', plugin_dir_url( __FILE__ ) );
-define( 'TSW_VERSION', '1.13.1' );
+define( 'TSW_VERSION', '1.13.2' );
 
 // Reusable-widget support classes (no Elementor dependency at load time). DEC-015.
 require_once TSW_PATH . 'includes/class-ts-art.php';
